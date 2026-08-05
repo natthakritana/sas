@@ -225,10 +225,10 @@
   <main class="relative">
     <!-- ================= HERO ================= -->
     <section id="home" class="min-h-screen flex items-center pt-28 pb-16 scroll-mt-20">
-      <div class="mx-auto max-w-6xl px-5 grid lg:grid-cols-2 gap-14 items-center w-full">
-        <div>
+      <div class="mx-auto max-w-6xl px-5 grid lg:grid-cols-[1.1fr_0.95fr] gap-12 items-center w-full">
+        <div class="hero-copy">
           <p class="section-tag reveal">// Soft Bakery Systems Designer · Pastry Engineer · Coffee Lover</p>
-          <h1 id="hero-title" class="reveal mt-5 text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-[1.1] tracking-tight" data-delay="1">
+          <h1 id="hero-title" class="reveal mt-5 text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-[1.05] tracking-tight" data-delay="1">
             <span class="typing-target"></span>
           </h1>
           <p class="reveal mt-6 max-w-xl text-base sm:text-lg text-slate-400 leading-relaxed font-light" data-delay="2">
@@ -245,8 +245,25 @@
           </div>
         </div>
 
-        <div class="reveal" data-delay="1">
-          <div class="recipe-card">
+        <div class="hero-showcase reveal" data-delay="1">
+          <div class="profile-frame card-hover" id="profile-frame">
+            <div class="profile-aura"></div>
+            <div class="profile-badges">
+              <span class="orbit-badge badge-floating" data-label="Full-Stack">Full-Stack</span>
+              <span class="orbit-badge badge-floating" data-label="AI Engine">AI Engine</span>
+              <span class="orbit-badge badge-floating" data-label="Chef Code">Chef Code</span>
+            </div>
+            <div class="profile-photo-wrap">
+              <img src="assets/profile.jpg" alt="Natthakrit profile" class="profile-photo" />
+              <div class="scanlines"></div>
+              <div class="photo-glare"></div>
+            </div>
+            <div class="profile-status badge-status">
+              <span class="status-dot"></span>
+              <span>SYS_ONLINE // OPEN FOR ROLES</span>
+            </div>
+          </div>
+          <div class="recipe-card mt-8">
             <div class="card-top flex items-center">
               <div class="mono text-xs text-slate-500">kitchen@little-bakery:~$ Today's Specials</div>
               <div class="ml-auto flex items-center gap-2 text-[10px] text-slate-500">

@@ -63,6 +63,41 @@ let lastMouse = {x:W/2,y:H/2};
 function updateParallax(){ layers.forEach(l=>{ const depth = parseFloat(l.dataset.depth||0.08); const dx = (pointer.x - W/2) * depth; const dy = (pointer.y - H/2) * depth; l.style.transform = `translate3d(${dx}px,${dy}px,0) translateZ(0)`; }); requestAnimationFrame(updateParallax); }
 if (!LOW_POWER) requestAnimationFrame(updateParallax);
 
+/* profile card 3D tilt and glare */
+const profileFrame = document.getElementById('profile-frame');
+const photoGlare = document.querySelector('.photo-glare');
+let frameState = {rx:0, ry:0, tx:0, ty:0};
+if (profileFrame && !LOW_POWER){
+  profileFrame.addEventListener('mousemove', (evt)=>{
+    const rect = profileFrame.getBoundingClientRect();
+    const px = (evt.clientX - rect.left)/rect.width - 0.5;
+    const py = (evt.clientY - rect.top)/rect.height - 0.5;
+    const targetRx = py * 12;
+    const targetRy = px * 14;
+    frameState.tx = Math.max(-18, Math.min(18, px*10));
+    frameState.ty = Math.max(-18, Math.min(18, py*10));
+    frameState.rx = targetRx;
+    frameState.ry = targetRy;
+    if (photoGlare){ photoGlare.style.transform = `translate3d(${px*18}px,${py*18}px,0) rotate(20deg)`; photoGlare.style.opacity = '0.45'; }
+  });
+  profileFrame.addEventListener('mouseleave', ()=>{
+    frameState = {rx:0,ry:0,tx:0,ty:0};
+    if (photoGlare){ photoGlare.style.opacity = '0.2'; photoGlare.style.transform = 'translate3d(0,0,0) rotate(20deg)'; }
+  });
+  (function animateFrame(){
+    if (profileFrame){
+      const current = profileFrame._current || {rx:0,ry:0,tx:0,ty:0};
+      current.rx += (frameState.rx - current.rx) * 0.14;
+      current.ry += (frameState.ry - current.ry) * 0.14;
+      current.tx += (frameState.tx - current.tx) * 0.14;
+      current.ty += (frameState.ty - current.ty) * 0.14;
+      profileFrame.style.transform = `perspective(950px) rotateX(${current.rx}deg) rotateY(${current.ry}deg) translate3d(${current.tx}px, ${current.ty}px, 0)`;
+      profileFrame._current = current;
+    }
+    requestAnimationFrame(animateFrame);
+  })();
+}
+
 /* watermark is CSS animated; ensure horizontal repeat coverage */
 (function ensureWatermark(){ const el = document.getElementById('watermark-marquee'); if (!el) return; // duplicate content to avoid gaps
   el.textContent = el.textContent + ' — ' + el.textContent; })();
