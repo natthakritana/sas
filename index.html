@@ -4,222 +4,113 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>NATTHAKRIT // Full-Stack Architect & Foodie</title>
-  <meta name="description" content="Portfolio of [นายณัฐกฤต อนันต์ฤทธิ์กุล] — Foodie-focused systems designer, creating kitchen-inspired digital experiences." />
+  <meta name="description" content="Portfolio of ณัฐกฤต อนันต์ฤทธิ์กุล — Soft-bakery focused systems designer crafting warm digital experiences." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&family=Prompt:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
     :root {
-      --bg-deep: #000000;
-      --bg-panel: rgba(255, 255, 255, 0.04);
-      --pink: #FF4FA2;
-      --pink-neon: #FF7BC9;
-      --purple: #7C3AED;
-      --neon: #FF5BC2;
-      --text-main: #F4F4F9;
-      --text-dim: #8F90A6;
+      --bg-cream: #FAF6F0;
+      --panel: rgba(255, 255, 255, 0.9);
+      --cinnamon: #C88A66;
+      --pastel-pink: #FFB7C5;
+      --strawberry: #FF8DAA;
+      --text-main: #3E2C2A; /* warm coffee brown */
+      --text-dim: #7B5A52;
       --font-sans: "Prompt", "Inter", system-ui, sans-serif;
       --font-mono: "JetBrains Mono", monospace;
     }
 
     html { scroll-behavior: smooth; }
     body {
-      background: var(--bg-deep);
+      background: var(--bg-cream);
       color: var(--text-main);
       font-family: var(--font-sans);
       overflow-x: hidden;
     }
-    ::selection { background: rgba(255, 79, 162, 0.35); color: #fff; }
+    ::selection { background: rgba(255, 183, 197, 0.4); color: #3E2C2A; }
 
-    /* ---------- ambient background layers ---------- */
+    /* soft ambient shapes */
     .bg-fx { position: fixed; inset: 0; z-index: -2; pointer-events: none; }
-    .bg-grid {
-      position: absolute; inset: 0;
-      background-image:
-        linear-gradient(rgba(255, 79, 162, 0.05) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255, 79, 162, 0.05) 1px, transparent 1px);
-      background-size: 40px 40px;
-      mask-image: radial-gradient(ellipse 90% 70% at 50% 0%, black 30%, transparent 100%);
-      -webkit-mask-image: radial-gradient(ellipse 90% 70% at 50% 0%, black 30%, transparent 100%);
-    }
-    .bg-aura {
-      position: absolute;
-      border-radius: 50%;
-      filter: blur(100px);
-      opacity: 0.25;
-    }
-    .bg-aura.pink   { width: 550px; height: 550px; top: -140px; right: -120px; background: var(--pink); }
-    .bg-aura.purple { width: 500px; height: 500px; top: 40%; left: -160px; background: var(--purple); }
-    .scanlines {
-      position: absolute; inset: 0;
-      background: repeating-linear-gradient(0deg, rgba(255,255,255,0.02) 0 1px, transparent 1px 3px);
-      mix-blend-mode: overlay;
-    }
+    .bg-aura { position: absolute; border-radius: 50%; filter: blur(80px); opacity: 0.18; }
+    .bg-aura.warm { width: 520px; height: 520px; top: -120px; right: -80px; background: var(--cinnamon); }
+    .bg-aura.pink { width: 420px; height: 420px; top: 40%; left: -120px; background: var(--pastel-pink); }
 
-    /* ---------- typography helpers ---------- */
+    /* typography helpers */
     .mono { font-family: var(--font-mono); }
     .section-tag {
       font-family: var(--font-mono);
-      letter-spacing: 0.2em;
+      letter-spacing: 0.12em;
       font-size: 0.75rem;
-      color: var(--pink);
+      color: var(--cinnamon);
       text-transform: uppercase;
     }
-    .text-pink-500 { color: var(--pink) !important; }
-    .text-pink-400 { color: var(--pink-neon) !important; }
-    .text-fuchsia-400 { color: var(--purple) !important; }
-    .text-purple-500 { color: var(--purple) !important; }
-    .hover\:text-pink-400:hover { color: var(--pink-neon) !important; }
-    .focus-within\:border-pink-500:focus-within { border-color: rgba(255, 79, 162, 0.6) !important; }
+    .text-pink-500 { color: var(--pastel-pink) !important; }
+    .text-pink-400 { color: var(--strawberry) !important; }
+    .text-fuchsia-400 { color: var(--cinnamon) !important; }
+    .hover\:text-pink-400:hover { color: var(--strawberry) !important; }
+    .focus-within\:border-pink-500:focus-within { border-color: rgba(255, 183, 197, 0.6) !important; }
 
-    /* ---------- glass ---------- */
+    /* soft glass / card */
     .glass {
-      background: rgba(18, 12, 20, 0.5);
-      backdrop-filter: blur(16px);
-      -webkit-backdrop-filter: blur(16px);
-      border: 1px solid rgba(255, 79, 162, 0.15);
-      border-radius: 1rem;
+      background: var(--panel);
+      border: 1px solid rgba(200,150,140,0.3);
+      border-radius: 1.25rem;
+      box-shadow: 0 8px 24px rgba(99,58,48,0.08);
     }
 
-    /* ---------- glow / hover ---------- */
+    /* gentle hover */
     .card-hover { transition: transform .25s ease, border-color .25s ease, box-shadow .25s ease; }
-    .card-hover:hover {
-      transform: translateY(-6px);
-      border-color: rgba(255, 79, 162, 0.6);
-      box-shadow: 0 0 30px rgba(255, 79, 162, 0.25), 0 0 70px rgba(124, 58, 237, 0.15);
-    }
+    .card-hover:hover { transform: translateY(-6px); box-shadow: 0 18px 36px rgba(99,58,48,0.12); }
 
     .btn-primary {
       font-family: var(--font-mono);
-      background: rgba(255, 79, 162, 0.12);
-      border: 1px solid rgba(255, 79, 162, 0.6);
-      color: #FFAEDC;
-      box-shadow: 0 0 16px rgba(255, 79, 162, 0.3), inset 0 0 14px rgba(255, 79, 162, 0.1);
-      transition: all .2s ease;
+      background: linear-gradient(180deg, rgba(255,183,197,0.9), rgba(255,183,197,0.8));
+      border: 1px solid rgba(200,130,110,0.3);
+      color: #5A2F2A;
+      box-shadow: 0 6px 18px rgba(255,183,197,0.25);
+      transition: all .18s ease;
     }
-    .btn-primary:hover {
-      background: rgba(255, 79, 162, 0.25);
-      color: #FFF;
-      box-shadow: 0 0 32px rgba(255, 79, 162, 0.6), inset 0 0 20px rgba(255, 79, 162, 0.2);
-    }
-    .btn-primary:active { transform: scale(0.98); }
+    .btn-primary:hover { transform: translateY(-2px); }
 
     .btn-ghost {
       font-family: var(--font-mono);
-      border: 1px solid rgba(255, 255, 255, 0.18);
+      border: 1px solid rgba(120,90,80,0.12);
       color: var(--text-dim);
-      transition: all .2s ease;
-    }
-    .btn-ghost:hover {
-      border-color: var(--pink-neon);
-      color: var(--text-main);
-      box-shadow: 0 0 22px rgba(255, 123, 201, 0.4);
-    }
-
-    /* ---------- nav ---------- */
-    .nav-link {
-      font-family: var(--font-mono);
-      letter-spacing: 0.12em;
-      color: var(--text-dim);
-      transition: color .2s ease, text-shadow .2s ease;
-    }
-    .nav-link:hover {
-      color: var(--pink);
-      text-shadow: 0 0 12px rgba(255, 79, 162, 0.8);
-    }
-
-    /* ---------- tech badges ---------- */
-    .badge {
-      font-family: var(--font-mono);
-      font-size: 0.72rem;
-      padding: 0.3rem 0.7rem;
-      border-radius: 999px;
-      border: 1px solid rgba(255, 79, 162, 0.2);
-      color: var(--text-main);
-      background: rgba(255, 79, 162, 0.05);
-      transition: all .2s ease;
-    }
-    .badge:hover { border-color: var(--pink); color: var(--pink-neon); box-shadow: 0 0 12px rgba(255, 79, 162, 0.4); }
-
-    /* ---------- terminal ---------- */
-    .terminal {
-      font-family: var(--font-mono);
-      background: rgba(10, 6, 12, 0.9);
-      backdrop-filter: blur(12px);
-      border: 1px solid rgba(255, 79, 162, 0.3);
-      border-radius: 0.9rem;
-      box-shadow: 0 0 35px rgba(255, 79, 162, 0.18), 0 20px 60px rgba(0, 0, 0, 0.8);
-      overflow: hidden;
-    }
-    .terminal-bar {
-      display: flex; align-items: center; gap: 0.5rem;
-      padding: 0.7rem 1rem;
-      background: rgba(255, 255, 255, 0.03);
-      border-bottom: 1px solid rgba(255, 0, 127, 0.15);
-    }
-    .t-dot { width: 11px; height: 11px; border-radius: 50%; }
-    .t-line { min-height: 1.5rem; line-height: 1.5rem; }
-    .t-prompt { color: var(--pink); }
-    .t-cmd { color: var(--text-main); }
-    .t-out { color: var(--text-dim); }
-    .t-cursor {
-      display: inline-block; width: 0.6em; height: 1.15em;
-      background: var(--pink); vertical-align: text-bottom;
-      box-shadow: 0 0 10px rgba(255, 79, 162, 0.9);
-      animation: blink 1s steps(1) infinite;
-    }
-    @keyframes blink { 50% { opacity: 0; } }
-
-    /* ---------- status dot ---------- */
-    .dot-live { width: 8px; height: 8px; border-radius: 50%; background: var(--pink); box-shadow: 0 0 10px var(--pink); animation: pulse 2s ease-in-out infinite; }
-    @keyframes pulse { 0%,100% { opacity: 1; } 50% { opacity: 0.35; } }
-
-    /* ---------- project art placeholder ---------- */
-    .proj-art {
-      position: relative;
-      height: 10rem;
-      border-radius: 0.75rem;
-      overflow: hidden;
-      border: 1px solid rgba(255, 79, 162, 0.15);
-    }
-    .proj-art .grid-lines {
-      position: absolute; inset: 0;
-      background-image:
-        linear-gradient(rgba(255,79,162,0.15) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255,79,162,0.15) 1px, transparent 1px);
-      background-size: 22px 22px;
-    }
-    .proj-art .emblem {
-      position: absolute; inset: 0;
-      display: grid; place-items: center;
-      font-size: 2.5rem;
-      text-shadow: 0 0 20px rgba(255,79,162,0.8);
-    }
-    .proj-art.grad-pink { background: linear-gradient(135deg, rgba(255,79,162,0.3), rgba(5,5,8,0.8) 70%); }
-    .proj-art.grad-purple { background: linear-gradient(135deg, rgba(124,58,237,0.35), rgba(5,5,8,0.8) 70%); }
-    .proj-art.grad-mixed { background: linear-gradient(135deg, rgba(255,79,162,0.25) 0%, rgba(124,58,237,0.3) 100%); }
-
-    /* ---------- contact input ---------- */
-    .cmd-input {
-      font-family: var(--font-mono);
       background: transparent;
-      color: var(--text-main);
-      caret-color: var(--pink);
-      outline: none;
-      width: 100%;
+      transition: all .18s ease;
     }
-    .cmd-input::placeholder { color: rgba(143, 144, 166, 0.5); }
+    .btn-ghost:hover { color: var(--text-main); box-shadow: 0 8px 18px rgba(120,90,80,0.06); }
 
-    /* ---------- scroll reveal ---------- */
-    .reveal { opacity: 0; transform: translateY(22px); transition: opacity .7s ease, transform .7s ease; }
+    /* nav */
+    .nav-link { font-family: var(--font-mono); letter-spacing: 0.08em; color: var(--text-dim); transition: color .18s ease; }
+    .nav-link:hover { color: var(--cinnamon); }
+
+    /* badges */
+    .badge { font-family: var(--font-mono); font-size: 0.72rem; padding: 0.35rem 0.8rem; border-radius: 999px; border: 1px solid rgba(200,150,140,0.12); color: var(--text-main); background: rgba(255,245,240,0.8); }
+
+    /* recipe / menu card */
+    .recipe-card { font-family: var(--font-sans); background: #fff; border-radius: 1.5rem; padding: 0; overflow: hidden; border: 1px solid rgba(120,90,80,0.06); box-shadow: 0 12px 30px rgba(99,58,48,0.08); }
+    .recipe-card .card-top { padding: 0.8rem 1rem; background: linear-gradient(90deg, rgba(255,240,238,0.9), rgba(255,250,246,0.9)); }
+    .recipe-item { font-family: var(--font-mono); color: var(--text-dim); }
+
+    /* status dot */
+    .dot-live { width: 8px; height: 8px; border-radius: 50%; background: var(--strawberry); box-shadow: 0 0 8px rgba(255,140,170,0.18); }
+
+    /* project art */
+    .proj-art img { width: 100%; height: 10rem; object-fit: cover; border-radius: 1rem; display: block; }
+
+    /* contact input */
+    .cmd-input { font-family: var(--font-mono); background: transparent; color: var(--text-main); caret-color: var(--strawberry); outline: none; width: 100%; }
+    .cmd-input::placeholder { color: rgba(123,90,82,0.35); }
+
+    /* reveal */
+    .reveal { opacity: 0; transform: translateY(18px); transition: opacity .6s ease, transform .6s ease; }
     .reveal.in-view { opacity: 1; transform: none; }
-    .reveal[data-delay="1"] { transition-delay: .12s; }
-    .reveal[data-delay="2"] { transition-delay: .24s; }
 
     @media (prefers-reduced-motion: reduce) {
       html { scroll-behavior: auto; }
-      .t-cursor, .dot-live { animation: none; }
       .reveal { opacity: 1; transform: none; transition: none; }
       .card-hover { transition: none; }
     }
@@ -229,25 +120,23 @@
 
   <!-- ambient background -->
   <div class="bg-fx" aria-hidden="true">
-    <div class="bg-grid"></div>
+    <div class="bg-aura warm"></div>
     <div class="bg-aura pink"></div>
-    <div class="bg-aura purple"></div>
-    <div class="scanlines"></div>
   </div>
 
   <!-- ================= NAV ================= -->
   <header class="fixed top-0 inset-x-0 z-50">
     <nav class="mx-auto max-w-6xl px-5">
       <div class="flex items-center justify-between py-4">
-        <a href="#home" class="mono text-sm font-bold tracking-widest text-white hover:text-pink-400 transition">
-          <span class="text-pink-500">&lt;</span>NATTHAKRIT<span class="text-purple-500">/</span><span class="text-pink-500">&gt;</span>__
+        <a href="#home" class="mono text-sm font-bold tracking-widest text-brown-700 hover:text-pink-400 transition" style="color:var(--text-main);">
+          <span class="text-pink-500">&lt;</span>NATTHAKRIT<span class="text-fuchsia-400">/</span>
         </a>
 
         <div class="hidden md:flex items-center gap-7">
-          <a href="#home"     class="nav-link text-xs">01 · HOME</a>
-          <a href="#arsenal"  class="nav-link text-xs">02 · ARSENAL</a>
-          <a href="#projects" class="nav-link text-xs">03 · PROJECTS</a>
-          <a href="#contact"  class="nav-link text-xs">04 · CONTACT</a>
+          <a href="#home"     class="nav-link text-xs">01 · WELCOME</a>
+          <a href="#arsenal"  class="nav-link text-xs">02 · INGREDIENTS & SKILLS</a>
+          <a href="#projects" class="nav-link text-xs">03 · FRESHLY BAKED</a>
+          <a href="#contact"  class="nav-link text-xs">04 · ORDER & CONNECT</a>
           <a href="#contact"  class="btn-ghost rounded-lg px-4 py-2 text-xs">HIRE_ME</a>
         </div>
 
@@ -257,12 +146,12 @@
         </button>
       </div>
 
-      <div id="mobile-menu" class="hidden md:hidden glass mb-4 px-5 py-4">
+        <div id="mobile-menu" class="hidden md:hidden glass mb-4 px-5 py-4">
         <div class="flex flex-col gap-4">
-          <a href="#home"     class="nav-link text-sm">01 · HOME</a>
-          <a href="#arsenal"  class="nav-link text-sm">02 · ARSENAL</a>
-          <a href="#projects" class="nav-link text-sm">03 · PROJECTS</a>
-          <a href="#contact"  class="nav-link text-sm">04 · CONTACT</a>
+          <a href="#home"     class="nav-link text-sm">01 · WELCOME</a>
+          <a href="#arsenal"  class="nav-link text-sm">02 · INGREDIENTS & SKILLS</a>
+          <a href="#projects" class="nav-link text-sm">03 · FRESHLY BAKED</a>
+          <a href="#contact"  class="nav-link text-sm">04 · ORDER & CONNECT</a>
         </div>
       </div>
     </nav>
@@ -273,13 +162,13 @@
     <section id="home" class="min-h-screen flex items-center pt-28 pb-16 scroll-mt-20">
       <div class="mx-auto max-w-6xl px-5 grid lg:grid-cols-2 gap-14 items-center w-full">
         <div>
-          <p class="section-tag reveal">// Kitchen-First Systems Designer · Foodie Engineer · Experience Chef</p>
+          <p class="section-tag reveal">// Soft Bakery Systems Designer · Pastry Engineer · Coffee Lover</p>
           <h1 class="reveal mt-5 text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-[1.1] tracking-tight" data-delay="1">
-            เสิร์ฟ <span class="text-pink-500" style="text-shadow:0 0 24px rgba(255,79,162,0.7)">แรงบันดาลใจ</span><br />
-            จากครัวสู่ <span class="text-purple-400" style="text-shadow:0 0 24px rgba(124,58,237,0.7)">ผลิตภัณฑ์ดิจิทัล</span>
+            คราฟต์โค้ดด้วยความใส่ใจ เสิร์ฟ<br />
+            ผลิตภัณฑ์ดิจิทัลรสเลิศ
           </h1>
-          <p class="reveal mt-6 max-w-lg text-base sm:text-lg text-slate-300 leading-relaxed font-light" data-delay="2">
-            สวัสดีครับ ผม <strong class="text-pink-400 font-semibold">[นายณัฐกฤต อนันต์ฤทธิ์กุล]</strong> สร้างระบบที่ลื่นไหลเหมือนมื้อเด็ด พร้อมสกัดข้อมูลด้วยกลิ่นอายอาหารและการออกแบบ UX/UI ที่กินใจผู้ใช้
+          <p class="reveal mt-6 max-w-lg text-base sm:text-lg text-slate-700 leading-relaxed font-light" data-delay="2">
+            สวัสดีครับ ผม <strong class="text-pink-400 font-semibold">ณัฐกฤต อนันต์ฤทธิ์กุล</strong> — สร้างประสบการณ์ดิจิทัลที่ละมุนและเป็นมืออาชีพ เหมือนขนมอบใหม่จากเตา
           </p>
           <div class="reveal mt-9 flex flex-wrap gap-4" data-delay="2">
             <a href="#projects" class="btn-primary rounded-xl px-6 py-3.5 text-sm">
@@ -290,23 +179,17 @@
         </div>
 
         <div class="reveal" data-delay="1">
-          <div class="terminal">
-            <div class="terminal-bar">
-              <span class="t-dot" style="background:#FF5F57"></span>
-              <span class="t-dot" style="background:#FEBC2E"></span>
-              <span class="t-dot" style="background:#28C840"></span>
-              <span class="ml-3 text-xs text-slate-400">kitchen@code-kitchen:~$</span>
-              <span class="ml-auto flex items-center gap-2 text-[10px] text-slate-400">
-                <span class="dot-live"></span> ONLINE
-              </span>
+          <div class="recipe-card">
+            <div class="card-top flex items-center">
+              <div class="mono text-xs text-slate-500">kitchen@little-bakery:~$ Today's Specials</div>
+              <div class="ml-auto flex items-center gap-2 text-[10px] text-slate-500">
+                <span class="dot-live"></span> OPEN
+              </div>
             </div>
-            <div id="terminal-body" class="p-5 text-[13px] sm:text-sm leading-7">
-              <p class="t-line">
-                <span class="t-prompt">➜</span>
-                <span class="t-cmd"> init --profile natthakrit</span>
-                <span class="t-out">  (loaded)</span>
-              </p>
-              <p class="t-line"><span class="t-cursor"></span></p>
+            <div id="recipe-body" class="p-5 text-[13px] sm:text-sm leading-7">
+              <p class="recipe-item">• Strawberry Mille Crepe — Signature</p>
+              <p class="recipe-item">• Cinnamon Latte — House Blend</p>
+              <p class="recipe-item">• Sous-Vide Butter Brioche — Freshly Baked</p>
             </div>
           </div>
         </div>
@@ -316,11 +199,11 @@
     <!-- ================= TECH STACK ================= -->
     <section id="arsenal" class="py-24 scroll-mt-20">
       <div class="mx-auto max-w-6xl px-5">
-        <p class="section-tag reveal">node://tech_stack</p>
+        <p class="section-tag reveal">pantry://ingredients</p>
         <h2 class="reveal mt-4 text-3xl sm:text-4xl font-bold tracking-tight" data-delay="1">
-          THE <span class="text-pink-500">ARSENAL</span>
+          INGREDIENTS &amp; <span class="text-pink-500">SKILLS</span>
         </h2>
-        <p class="reveal mt-3 text-slate-400" data-delay="1">เทคโนโลยีและเครื่องมือระดับโปรที่เลือกใช้ขับเคลื่อนระบบ</p>
+        <p class="reveal mt-3 text-slate-700" data-delay="1">ส่วนผสมหลักและทักษะที่ใช้รังสรรค์ผลงาน</p>
 
         <div class="mt-12 grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
           <!-- Frontend -->
@@ -371,18 +254,17 @@
     <!-- ================= PROJECTS ================= -->
     <section id="projects" class="py-24 scroll-mt-20">
       <div class="mx-auto max-w-6xl px-5">
-        <p class="section-tag reveal">repo://deployments</p>
+        <p class="section-tag reveal">oven://fresh</p>
         <h2 class="reveal mt-4 text-3xl sm:text-4xl font-bold tracking-tight" data-delay="1">
-          FEATURED <span class="text-pink-500">PROJECTS</span>
+          FRESHLY <span class="text-pink-500">BAKED</span>
         </h2>
-        <p class="reveal mt-3 text-slate-400" data-delay="1">ผลงานเด่นที่รวมเอาความหลงใหลและเทคโนโลยีระดับสูงเข้าไว้ด้วยกัน</p>
+        <p class="reveal mt-3 text-slate-700" data-delay="1">ผลงานอบใหม่ที่ผสมผสานความคิดสร้างสรรค์และเทคนิค</p>
 
         <div class="mt-12 grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
           <!-- Project 1 -->
           <article class="glass card-hover p-5 flex flex-col reveal">
-            <div class="proj-art grad-pink" aria-hidden="true">
-              <div class="grid-lines"></div>
-              <span class="emblem">🍜</span>
+            <div class="proj-art" aria-hidden="true">
+              <img src="https://images.unsplash.com/photo-1565958011703-44f9829ba187?auto=format&fit=crop&w=800&q=80" alt="Strawberry cake" />
             </div>
             <div class="mt-5 flex-1 flex flex-col">
               <h3 class="text-lg font-bold">Gourmet Vision AI</h3>
@@ -396,9 +278,8 @@
 
           <!-- Project 2 -->
           <article class="glass card-hover p-5 flex flex-col reveal" data-delay="1">
-            <div class="proj-art grad-purple" aria-hidden="true">
-              <div class="grid-lines"></div>
-              <span class="emblem">⚡</span>
+            <div class="proj-art" aria-hidden="true">
+              <img src="https://images.unsplash.com/photo-1554118811-1e0d58224f24?auto=format&fit=crop&w=800&q=80" alt="Minimal cafe and espresso" />
             </div>
             <div class="mt-5 flex-1 flex flex-col">
               <h3 class="text-lg font-bold">OmniBite POS Gateway</h3>
@@ -413,9 +294,8 @@
 
           <!-- Project 3 -->
           <article class="glass card-hover p-5 flex flex-col reveal" data-delay="2">
-            <div class="proj-art grad-mixed" aria-hidden="true">
-              <div class="grid-lines"></div>
-              <span class="emblem">☕</span>
+            <div class="proj-art" aria-hidden="true">
+              <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=800&q=80" alt="Bakery kitchen and coffee" />
             </div>
             <div class="mt-5 flex-1 flex flex-col">
               <h3 class="text-lg font-bold">ThermoKitchen IoT</h3>
@@ -430,10 +310,8 @@
 
           <!-- Project 4 -->
           <article class="glass card-hover p-5 flex flex-col reveal" data-delay="3">
-            <div class="proj-art grad-pink" aria-hidden="true">
-              <img src="https://images.unsplash.com/photo-1551218808-94e220e084d2?auto=format&fit=crop&w=800&q=80" alt="Smart food delivery dashboard" class="w-full h-40 object-cover rounded-xl" />
-              <div class="grid-lines"></div>
-              <span class="emblem">🚀</span>
+            <div class="proj-art" aria-hidden="true">
+              <img src="https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=800&q=80" alt="Fresh bento and pastries" />
             </div>
             <div class="mt-5 flex-1 flex flex-col">
               <h3 class="text-lg font-bold">Quantum Bento Engine</h3>
@@ -491,7 +369,7 @@
   <!-- ================= FOOTER ================= -->
   <footer class="border-t border-white/10 py-8">
     <div class="mx-auto max-w-6xl px-5 flex flex-col sm:flex-row items-center justify-between gap-4">
-      <p class="mono text-xs text-slate-400">© [นายณัฐกฤต อนันต์ฤทธิ์กุล] — Built with Code & Food Calories</p>
+      <p class="mono text-xs text-slate-400">© ณัฐกฤต อนันต์ฤทธิ์กุล — Baked with Code & Care</p>
       <div class="flex items-center gap-5">
         <a href="https://github.com/natthakritana" target="_blank" rel="noopener" class="nav-link text-xs">GitHub</a>
         <a href="https://linkedin.com/in/natthakritana" target="_blank" rel="noopener" class="nav-link text-xs">LinkedIn</a>
@@ -531,71 +409,43 @@
         });
       }
 
-      /* ---------------- terminal typing ---------------- */
-      var body = document.getElementById("terminal-body");
+      /* ---------------- recipe/menu rendering ---------------- */
+      var body = document.getElementById("recipe-body");
       var LINES = [
-        "> system status: 100% operational",
-        "> developer: [นายณัฐกฤต อนันต์ฤทธิ์กุล]",
-        "> fuel_input: ramen + specialty_coffee",
-        "> output: clean architecture & scalable systems",
-        "> ready to build high-performance solutions..."
+        "Strawberry Mille Crepe — Signature",
+        "Cinnamon Latte — House Blend",
+        "Sous-Vide Butter Brioche — Freshly Baked",
+        "Daily Specials: Ask for today’s flavor"
       ];
 
-      function typeSequence() {
-        if (!body || reduceMotion) {
-          renderStatic();
-          return;
-        }
-        var cursorLine = body.querySelector(".t-line:last-child");
-        var i = 0;
-        function nextLine() {
-          if (i >= LINES.length) {
-            if (cursorLine) cursorLine.style.display = "";
-            return;
-          }
-          var p = document.createElement("p");
-          p.className = "t-line";
-          var span = document.createElement("span");
-          span.className = "t-out";
-          p.appendChild(span);
-          if (cursorLine && body.contains(cursorLine)) {
-            body.insertBefore(p, cursorLine);
-          } else {
-            body.appendChild(p);
-          }
-          typeChars(span, LINES[i], function () {
-            i++;
-            window.setTimeout(nextLine, 300);
-          });
-        }
-        window.setTimeout(nextLine, 600);
-      }
-
-      function typeChars(el, text, done) {
-        var j = 0;
-        (function tick() {
-          if (j <= text.length) {
-            el.textContent = text.slice(0, j);
-            j++;
-            window.setTimeout(tick, 35);
-          } else {
-            done();
-          }
-        })();
-      }
-
-      function renderStatic() {
+      function renderMenu() {
         if (!body) return;
+        body.innerHTML = "";
         LINES.forEach(function (line) {
           var p = document.createElement("p");
-          p.className = "t-line";
-          p.innerHTML = '<span class="t-out"></span>';
-          p.querySelector("span").textContent = line;
+          p.className = "recipe-item";
+          p.textContent = "• " + line;
           body.appendChild(p);
         });
       }
 
-      typeSequence();
+      if (reduceMotion) {
+        renderMenu();
+      } else {
+        // gentle reveal with small delays
+        body.innerHTML = "";
+        var i = 0;
+        function next() {
+          if (i >= LINES.length) return;
+          var p = document.createElement("p");
+          p.className = "recipe-item";
+          p.textContent = "• " + LINES[i];
+          body.appendChild(p);
+          i++;
+          window.setTimeout(next, 400);
+        }
+        window.setTimeout(next, 450);
+      }
 
       /* ---------------- scroll reveal ---------------- */
       var reveals = document.querySelectorAll(".reveal");
