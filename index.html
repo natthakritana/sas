@@ -4,19 +4,19 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>NATTHAKRIT // Full-Stack Architect & Foodie</title>
-  <meta name="description" content="Portfolio of Natthakrit Ananrithikul — Full Stack Architect converting calories into clean high-performance code." />
+  <meta name="description" content="Portfolio of [นายณัฐกฤต อนันต์ฤทธิ์กุล] — Foodie-focused systems designer, creating kitchen-inspired digital experiences." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&family=Prompt:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
     :root {
-      --bg-deep: #050508;
-      --bg-panel: rgba(255, 255, 255, 0.03);
-      --pink: #FF007F;
-      --pink-neon: #FF2A85;
-      --purple: #9D00FF;
-      --neon: #FF0055;
+      --bg-deep: #000000;
+      --bg-panel: rgba(255, 255, 255, 0.04);
+      --pink: #FF4FA2;
+      --pink-neon: #FF7BC9;
+      --purple: #7C3AED;
+      --neon: #FF5BC2;
       --text-main: #F4F4F9;
       --text-dim: #8F90A6;
       --font-sans: "Prompt", "Inter", system-ui, sans-serif;
@@ -30,15 +30,15 @@
       font-family: var(--font-sans);
       overflow-x: hidden;
     }
-    ::selection { background: rgba(255, 0, 127, 0.35); color: #fff; }
+    ::selection { background: rgba(255, 79, 162, 0.35); color: #fff; }
 
     /* ---------- ambient background layers ---------- */
     .bg-fx { position: fixed; inset: 0; z-index: -2; pointer-events: none; }
     .bg-grid {
       position: absolute; inset: 0;
       background-image:
-        linear-gradient(rgba(255, 0, 127, 0.05) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255, 0, 127, 0.05) 1px, transparent 1px);
+        linear-gradient(rgba(255, 79, 162, 0.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 79, 162, 0.05) 1px, transparent 1px);
       background-size: 40px 40px;
       mask-image: radial-gradient(ellipse 90% 70% at 50% 0%, black 30%, transparent 100%);
       -webkit-mask-image: radial-gradient(ellipse 90% 70% at 50% 0%, black 30%, transparent 100%);
@@ -66,13 +66,19 @@
       color: var(--pink);
       text-transform: uppercase;
     }
+    .text-pink-500 { color: var(--pink) !important; }
+    .text-pink-400 { color: var(--pink-neon) !important; }
+    .text-fuchsia-400 { color: var(--purple) !important; }
+    .text-purple-500 { color: var(--purple) !important; }
+    .hover\:text-pink-400:hover { color: var(--pink-neon) !important; }
+    .focus-within\:border-pink-500:focus-within { border-color: rgba(255, 79, 162, 0.6) !important; }
 
     /* ---------- glass ---------- */
     .glass {
       background: rgba(18, 12, 20, 0.5);
       backdrop-filter: blur(16px);
       -webkit-backdrop-filter: blur(16px);
-      border: 1px solid rgba(255, 0, 127, 0.15);
+      border: 1px solid rgba(255, 79, 162, 0.15);
       border-radius: 1rem;
     }
 
@@ -80,22 +86,22 @@
     .card-hover { transition: transform .25s ease, border-color .25s ease, box-shadow .25s ease; }
     .card-hover:hover {
       transform: translateY(-6px);
-      border-color: rgba(255, 0, 127, 0.6);
-      box-shadow: 0 0 30px rgba(255, 0, 127, 0.25), 0 0 70px rgba(157, 0, 255, 0.15);
+      border-color: rgba(255, 79, 162, 0.6);
+      box-shadow: 0 0 30px rgba(255, 79, 162, 0.25), 0 0 70px rgba(124, 58, 237, 0.15);
     }
 
     .btn-primary {
       font-family: var(--font-mono);
-      background: rgba(255, 0, 127, 0.12);
-      border: 1px solid rgba(255, 0, 127, 0.6);
-      color: #FF66B2;
-      box-shadow: 0 0 16px rgba(255, 0, 127, 0.3), inset 0 0 14px rgba(255, 0, 127, 0.1);
+      background: rgba(255, 79, 162, 0.12);
+      border: 1px solid rgba(255, 79, 162, 0.6);
+      color: #FFAEDC;
+      box-shadow: 0 0 16px rgba(255, 79, 162, 0.3), inset 0 0 14px rgba(255, 79, 162, 0.1);
       transition: all .2s ease;
     }
     .btn-primary:hover {
-      background: rgba(255, 0, 127, 0.25);
+      background: rgba(255, 79, 162, 0.25);
       color: #FFF;
-      box-shadow: 0 0 32px rgba(255, 0, 127, 0.6), inset 0 0 20px rgba(255, 0, 127, 0.2);
+      box-shadow: 0 0 32px rgba(255, 79, 162, 0.6), inset 0 0 20px rgba(255, 79, 162, 0.2);
     }
     .btn-primary:active { transform: scale(0.98); }
 
@@ -108,7 +114,7 @@
     .btn-ghost:hover {
       border-color: var(--pink-neon);
       color: var(--text-main);
-      box-shadow: 0 0 22px rgba(255, 42, 133, 0.4);
+      box-shadow: 0 0 22px rgba(255, 123, 201, 0.4);
     }
 
     /* ---------- nav ---------- */
@@ -120,7 +126,7 @@
     }
     .nav-link:hover {
       color: var(--pink);
-      text-shadow: 0 0 12px rgba(255, 0, 127, 0.8);
+      text-shadow: 0 0 12px rgba(255, 79, 162, 0.8);
     }
 
     /* ---------- tech badges ---------- */
@@ -129,21 +135,21 @@
       font-size: 0.72rem;
       padding: 0.3rem 0.7rem;
       border-radius: 999px;
-      border: 1px solid rgba(255, 0, 127, 0.2);
+      border: 1px solid rgba(255, 79, 162, 0.2);
       color: var(--text-main);
-      background: rgba(255, 0, 127, 0.05);
+      background: rgba(255, 79, 162, 0.05);
       transition: all .2s ease;
     }
-    .badge:hover { border-color: var(--pink); color: var(--pink-neon); box-shadow: 0 0 12px rgba(255, 0, 127, 0.4); }
+    .badge:hover { border-color: var(--pink); color: var(--pink-neon); box-shadow: 0 0 12px rgba(255, 79, 162, 0.4); }
 
     /* ---------- terminal ---------- */
     .terminal {
       font-family: var(--font-mono);
       background: rgba(10, 6, 12, 0.9);
       backdrop-filter: blur(12px);
-      border: 1px solid rgba(255, 0, 127, 0.3);
+      border: 1px solid rgba(255, 79, 162, 0.3);
       border-radius: 0.9rem;
-      box-shadow: 0 0 35px rgba(255, 0, 127, 0.18), 0 20px 60px rgba(0, 0, 0, 0.8);
+      box-shadow: 0 0 35px rgba(255, 79, 162, 0.18), 0 20px 60px rgba(0, 0, 0, 0.8);
       overflow: hidden;
     }
     .terminal-bar {
@@ -160,7 +166,7 @@
     .t-cursor {
       display: inline-block; width: 0.6em; height: 1.15em;
       background: var(--pink); vertical-align: text-bottom;
-      box-shadow: 0 0 10px rgba(255, 0, 127, 0.9);
+      box-shadow: 0 0 10px rgba(255, 79, 162, 0.9);
       animation: blink 1s steps(1) infinite;
     }
     @keyframes blink { 50% { opacity: 0; } }
@@ -175,24 +181,24 @@
       height: 10rem;
       border-radius: 0.75rem;
       overflow: hidden;
-      border: 1px solid rgba(255, 0, 127, 0.15);
+      border: 1px solid rgba(255, 79, 162, 0.15);
     }
     .proj-art .grid-lines {
       position: absolute; inset: 0;
       background-image:
-        linear-gradient(rgba(255,0,127,0.15) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255,0,127,0.15) 1px, transparent 1px);
+        linear-gradient(rgba(255,79,162,0.15) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,79,162,0.15) 1px, transparent 1px);
       background-size: 22px 22px;
     }
     .proj-art .emblem {
       position: absolute; inset: 0;
       display: grid; place-items: center;
       font-size: 2.5rem;
-      text-shadow: 0 0 20px rgba(255,0,127,0.8);
+      text-shadow: 0 0 20px rgba(255,79,162,0.8);
     }
-    .proj-art.grad-pink { background: linear-gradient(135deg, rgba(255,0,127,0.3), rgba(5,5,8,0.8) 70%); }
-    .proj-art.grad-purple { background: linear-gradient(135deg, rgba(157,0,255,0.35), rgba(5,5,8,0.8) 70%); }
-    .proj-art.grad-mixed { background: linear-gradient(135deg, rgba(255,0,127,0.25) 0%, rgba(157,0,255,0.3) 100%); }
+    .proj-art.grad-pink { background: linear-gradient(135deg, rgba(255,79,162,0.3), rgba(5,5,8,0.8) 70%); }
+    .proj-art.grad-purple { background: linear-gradient(135deg, rgba(124,58,237,0.35), rgba(5,5,8,0.8) 70%); }
+    .proj-art.grad-mixed { background: linear-gradient(135deg, rgba(255,79,162,0.25) 0%, rgba(124,58,237,0.3) 100%); }
 
     /* ---------- contact input ---------- */
     .cmd-input {
@@ -234,7 +240,7 @@
     <nav class="mx-auto max-w-6xl px-5">
       <div class="flex items-center justify-between py-4">
         <a href="#home" class="mono text-sm font-bold tracking-widest text-white hover:text-pink-400 transition">
-          <span class="text-pink-500">&lt;</span>NATTHAKRIT<span class="text-fuchsia-500">/</span><span class="text-pink-500">&gt;</span>__
+          <span class="text-pink-500">&lt;</span>NATTHAKRIT<span class="text-purple-500">/</span><span class="text-pink-500">&gt;</span>__
         </a>
 
         <div class="hidden md:flex items-center gap-7">
@@ -267,13 +273,13 @@
     <section id="home" class="min-h-screen flex items-center pt-28 pb-16 scroll-mt-20">
       <div class="mx-auto max-w-6xl px-5 grid lg:grid-cols-2 gap-14 items-center w-full">
         <div>
-          <p class="section-tag reveal">// Full-Stack Architect · Food Enthusiast · Tech Lead</p>
+          <p class="section-tag reveal">// Kitchen-First Systems Designer · Foodie Engineer · Experience Chef</p>
           <h1 class="reveal mt-5 text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-[1.1] tracking-tight" data-delay="1">
-            เปลี่ยน <span class="text-pink-500" style="text-shadow:0 0 24px rgba(255,0,127,0.7)">แคลอรี</span><br />
-            ให้กลายเป็น <span class="text-fuchsia-400" style="text-shadow:0 0 24px rgba(157,0,255,0.7)">สุดยอดโค้ด</span>
+            เสิร์ฟ <span class="text-pink-500" style="text-shadow:0 0 24px rgba(255,79,162,0.7)">แรงบันดาลใจ</span><br />
+            จากครัวสู่ <span class="text-purple-400" style="text-shadow:0 0 24px rgba(124,58,237,0.7)">ผลิตภัณฑ์ดิจิทัล</span>
           </h1>
           <p class="reveal mt-6 max-w-lg text-base sm:text-lg text-slate-300 leading-relaxed font-light" data-delay="2">
-            สวัสดีครับ ผม <strong class="text-pink-400 font-semibold">ณัฐกฤต อนันต์ฤทธิ์กุล</strong> นักพัฒนาสายกินผู้เชื่อว่า อาหารจานเด็ดและกาแฟสเปเชียลตี้คือเชื้อเพลิงในการสร้าง High-Performance Microservices, Rust Backends และ WebGL UIs ระดับสเกลล้าน Users
+            สวัสดีครับ ผม <strong class="text-pink-400 font-semibold">[นายณัฐกฤต อนันต์ฤทธิ์กุล]</strong> สร้างระบบที่ลื่นไหลเหมือนมื้อเด็ด พร้อมสกัดข้อมูลด้วยกลิ่นอายอาหารและการออกแบบ UX/UI ที่กินใจผู้ใช้
           </p>
           <div class="reveal mt-9 flex flex-wrap gap-4" data-delay="2">
             <a href="#projects" class="btn-primary rounded-xl px-6 py-3.5 text-sm">
@@ -289,7 +295,7 @@
               <span class="t-dot" style="background:#FF5F57"></span>
               <span class="t-dot" style="background:#FEBC2E"></span>
               <span class="t-dot" style="background:#28C840"></span>
-              <span class="ml-3 text-xs text-slate-400">natthakrit@foodie-node:~$</span>
+              <span class="ml-3 text-xs text-slate-400">kitchen@code-kitchen:~$</span>
               <span class="ml-auto flex items-center gap-2 text-[10px] text-slate-400">
                 <span class="dot-live"></span> ONLINE
               </span>
@@ -321,11 +327,12 @@
           <div class="glass card-hover p-7 reveal">
             <div class="flex items-center justify-between">
               <h3 class="mono text-sm font-bold tracking-widest text-white">FRONTEND ARTISTRY</h3>
-              <span class="mono text-2xl text-pink-500" style="text-shadow:0 0 14px rgba(255,0,127,0.8)">&lt;/&gt;</span>
+              <span class="mono text-2xl text-pink-500" style="text-shadow:0 0 14px rgba(255,79,162,0.8)">&lt;/&gt;</span>
             </div>
             <div class="mt-5 flex flex-wrap gap-2">
               <span class="badge">Next.js 15</span><span class="badge">React 19</span><span class="badge">TypeScript</span>
-              <span class="badge">TailwindCSS</span><span class="badge">Three.js</span><span class="badge">WebGL</span>
+              <span class="badge">TailwindCSS</span><span class="badge">Vite</span><span class="badge">Three.js</span>
+              <span class="badge">WebGL</span><span class="badge">Framer Motion</span><span class="badge">Sass</span>
             </div>
             <p class="mt-5 text-sm text-slate-400 leading-relaxed">ดีไซน์ UI คมชัด ตอบสนองระดับลื่นไหล 120 FPS โทนเนียนกริบทุกพิกเซล</p>
           </div>
@@ -334,11 +341,12 @@
           <div class="glass card-hover p-7 reveal" data-delay="1">
             <div class="flex items-center justify-between">
               <h3 class="mono text-sm font-bold tracking-widest text-white">BACKEND & CLOUD</h3>
-              <span class="mono text-2xl text-fuchsia-400" style="text-shadow:0 0 14px rgba(157,0,255,0.8)">{ }</span>
+              <span class="mono text-2xl text-fuchsia-400" style="text-shadow:0 0 14px rgba(124,58,237,0.8)">{ }</span>
             </div>
             <div class="mt-5 flex flex-wrap gap-2">
               <span class="badge">Rust</span><span class="badge">Go</span><span class="badge">Python</span>
               <span class="badge">FastAPI</span><span class="badge">PostgreSQL</span><span class="badge">Kubernetes</span>
+              <span class="badge">Docker</span><span class="badge">GraphQL</span><span class="badge">Redis</span>
             </div>
             <p class="mt-5 text-sm text-slate-400 leading-relaxed">สถาปัตยกรรม Microservices แบบยืดหยุ่น รองรับ Concurrent Requests มหาศาล</p>
           </div>
@@ -347,11 +355,12 @@
           <div class="glass card-hover p-7 reveal" data-delay="2">
             <div class="flex items-center justify-between">
               <h3 class="mono text-sm font-bold tracking-widest text-white">EDGE AI & HARDWARE</h3>
-              <span class="mono text-2xl text-pink-400" style="text-shadow:0 0 14px rgba(255,0,127,0.7)">⚡</span>
+              <span class="mono text-2xl text-pink-400" style="text-shadow:0 0 14px rgba(255,79,162,0.7)">⚡</span>
             </div>
             <div class="mt-5 flex flex-wrap gap-2">
               <span class="badge">PyTorch</span><span class="badge">Edge AI</span><span class="badge">Docker</span>
               <span class="badge">Kafka</span><span class="badge">ESP32</span><span class="badge">MQTT</span>
+              <span class="badge">TensorFlow</span><span class="badge">OpenCV</span><span class="badge">ONNX</span>
             </div>
             <p class="mt-5 text-sm text-slate-400 leading-relaxed">ระบบประมวลผลข้อมูลอัจฉริยะ อุปกรณ์ IoT ติดสปีดไปจนถึง AI Vision Model</p>
           </div>
@@ -396,6 +405,7 @@
               <p class="mt-2 text-sm text-slate-400 leading-relaxed">Distributed POS Gateway ประมวลผลธุรกรรมร้านอาหารระดับแฟรนไชส์มากกว่า 1.5 ล้าน รายการ/วินาที แบบ Zero Downtime</p>
               <div class="mt-4 flex flex-wrap gap-2">
                 <span class="badge">Go</span><span class="badge">Kafka</span><span class="badge">Kubernetes</span>
+                <span class="badge">Docker</span><span class="badge">PostgreSQL</span>
               </div>
               <a href="https://github.com" target="_blank" rel="noopener" class="btn-ghost rounded-lg mt-6 text-center px-4 py-2.5 text-xs w-full">⌘ View Repository</a>
             </div>
@@ -412,8 +422,28 @@
               <p class="mt-2 text-sm text-slate-400 leading-relaxed">ระบบ IoT ควบคุมอุณหภูมิการทำอาหารระดับความแม่นยำสูง (Precision Sous-Vide) สตรีม telemetry ผ่าน MQTT สู่ Dashboard</p>
               <div class="mt-4 flex flex-wrap gap-2">
                 <span class="badge">ESP32</span><span class="badge">MQTT</span><span class="badge">Next.js</span>
+                <span class="badge">GraphQL</span>
               </div>
               <a href="https://github.com" target="_blank" rel="noopener" class="btn-ghost rounded-lg mt-6 text-center px-4 py-2.5 text-xs w-full">⌘ View Repository</a>
+            </div>
+          </article>
+
+          <!-- Project 4 -->
+          <article class="glass card-hover p-5 flex flex-col reveal" data-delay="3">
+            <div class="proj-art grad-pink" aria-hidden="true">
+              <img src="https://images.unsplash.com/photo-1551218808-94e220e084d2?auto=format&fit=crop&w=800&q=80" alt="Smart food delivery dashboard" class="w-full h-40 object-cover rounded-xl" />
+              <div class="grid-lines"></div>
+              <span class="emblem">🚀</span>
+            </div>
+            <div class="mt-5 flex-1 flex flex-col">
+              <h3 class="text-lg font-bold">Quantum Bento Engine</h3>
+              <p class="mt-2 text-sm text-slate-400 leading-relaxed">แพลตฟอร์มจัดคิวอาหารอัจฉริยะ ทำงานด้วย AI ตอบโจทย์การจัดส่งเรียลไทม์และจัดสต็อกวัตถุดิบแบบอัตโนมัติ</p>
+              <div class="mt-4 flex flex-wrap gap-2">
+                <span class="badge">React</span><span class="badge">Firebase</span><span class="badge">Tailwind</span>
+                <span class="badge">Node.js</span><span class="badge">Cloud Functions</span>
+              </div>
+              <a href="https://github.com/natthakritana/quantum-bento-engine" target="_blank" rel="noopener" class="btn-ghost rounded-lg mt-6 text-center px-4 py-2.5 text-xs w-full">⌘ View Repository</a>
+              <p class="mono text-[10px] text-slate-500 mt-3">Image source: Unsplash</p>
             </div>
           </article>
         </div>
@@ -461,11 +491,11 @@
   <!-- ================= FOOTER ================= -->
   <footer class="border-t border-white/10 py-8">
     <div class="mx-auto max-w-6xl px-5 flex flex-col sm:flex-row items-center justify-between gap-4">
-      <p class="mono text-xs text-slate-400">© NATTHAKRIT ANANRITHIKUL — Built with Code & Food Calories</p>
+      <p class="mono text-xs text-slate-400">© [นายณัฐกฤต อนันต์ฤทธิ์กุล] — Built with Code & Food Calories</p>
       <div class="flex items-center gap-5">
-        <a href="https://github.com" target="_blank" rel="noopener" class="nav-link text-xs">GitHub</a>
-        <a href="https://linkedin.com" target="_blank" rel="noopener" class="nav-link text-xs">LinkedIn</a>
-        <a href="mailto:contact@example.com" class="nav-link text-xs">Email</a>
+        <a href="https://github.com/natthakritana" target="_blank" rel="noopener" class="nav-link text-xs">GitHub</a>
+        <a href="https://linkedin.com/in/natthakritana" target="_blank" rel="noopener" class="nav-link text-xs">LinkedIn</a>
+        <a href="mailto:natthakrit.ana@pccpl.ac.th" class="nav-link text-xs">Email</a>
       </div>
     </div>
   </footer>
@@ -505,7 +535,7 @@
       var body = document.getElementById("terminal-body");
       var LINES = [
         "> system status: 100% operational",
-        "> developer: Natthakrit Ananrithikul",
+        "> developer: [นายณัฐกฤต อนันต์ฤทธิ์กุล]",
         "> fuel_input: ramen + specialty_coffee",
         "> output: clean architecture & scalable systems",
         "> ready to build high-performance solutions..."
@@ -599,7 +629,7 @@
             return;
           }
 
-          setStatus("> transmitting message...", "#FF007F");
+          setStatus("> transmitting message...", "#FF4FA2");
           window.setTimeout(function () {
             setStatus("> message received ✓ (จะรีบตอบกลับโดยเร็วครับ)", "#39FF14");
             if (email) email.value = "";
