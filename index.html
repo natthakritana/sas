@@ -28,12 +28,25 @@
       color: var(--text-main);
       font-family: var(--font-sans);
       overflow-x: hidden;
+      position: relative;
+    }
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      z-index: -3;
+      pointer-events: none;
+      background: radial-gradient(circle at 18% 15%, rgba(236, 72, 153, 0.16), transparent 18%),
+                  radial-gradient(circle at 82% 20%, rgba(59, 130, 246, 0.12), transparent 20%),
+                  linear-gradient(135deg, rgba(15, 23, 42, 0.96), rgba(15, 23, 42, 0.98) 45%, rgba(15, 23, 42, 0.99));
+      background-size: 210% 210%;
+      animation: bgShift 24s infinite alternate ease-in-out;
     }
     ::selection { background: rgba(236, 72, 153, 0.35); color: #0F172A; }
 
     /* soft ambient shapes */
     .bg-fx { position: fixed; inset: 0; z-index: -2; pointer-events: none; }
-    .bg-aura { position: absolute; border-radius: 50%; filter: blur(90px); opacity: 0.2; }
+    .bg-aura { position: absolute; border-radius: 50%; filter: blur(90px); opacity: 0.2; animation: float 14s ease-in-out infinite alternate; }
     .bg-aura.warm { width: 520px; height: 520px; top: -120px; right: -80px; background: rgba(236, 72, 153, 0.35); }
     .bg-aura.pink { width: 420px; height: 420px; top: 40%; left: -120px; background: rgba(124, 58, 237, 0.22); }
 
@@ -65,8 +78,8 @@
     }
 
     /* gentle hover */
-    .card-hover { transition: transform .25s ease, border-color .25s ease, box-shadow .25s ease; }
-    .card-hover:hover { transform: translateY(-6px); box-shadow: 0 24px 48px rgba(148, 163, 184, 0.18); }
+    .card-hover { transition: transform .25s ease, border-color .25s ease, box-shadow .25s ease; will-change: transform, box-shadow; }
+    .card-hover:hover { transform: translateY(-10px) scale(1.007); box-shadow: 0 28px 60px rgba(148, 163, 184, 0.22); }
 
     .btn-primary {
       font-family: var(--font-mono);
@@ -74,18 +87,18 @@
       border: 1px solid rgba(236, 72, 153, 0.3);
       color: #F8FAFC;
       box-shadow: 0 8px 24px rgba(236, 72, 153, 0.18);
-      transition: all .18s ease;
+      transition: transform .22s ease, box-shadow .22s ease, filter .22s ease;
     }
-    .btn-primary:hover { transform: translateY(-2px); }
+    .btn-primary:hover { transform: translateY(-2px) scale(1.02); box-shadow: 0 12px 30px rgba(236, 72, 153, 0.28); filter: brightness(1.04); }
 
     .btn-ghost {
       font-family: var(--font-mono);
       border: 1px solid rgba(148, 163, 184, 0.2);
       color: var(--text-dim);
       background: rgba(255, 255, 255, 0.04);
-      transition: all .18s ease;
+      transition: transform .22s ease, box-shadow .22s ease, color .22s ease;
     }
-    .btn-ghost:hover { color: #F8FAFC; box-shadow: 0 10px 22px rgba(124, 58, 237, 0.18); }
+    .btn-ghost:hover { color: #F8FAFC; box-shadow: 0 10px 22px rgba(124, 58, 237, 0.18); transform: translateY(-2px) scale(1.02); }
 
     /* nav */
     .nav-link { font-family: var(--font-mono); letter-spacing: 0.08em; color: var(--text-dim); transition: color .18s ease; }
@@ -103,20 +116,40 @@
     .dot-live { width: 8px; height: 8px; border-radius: 50%; background: var(--strawberry); box-shadow: 0 0 8px rgba(255,140,170,0.18); }
 
     /* project art */
-    .proj-art img { width: 100%; height: 10rem; object-fit: cover; border-radius: 1rem; display: block; }
+    .proj-art img { width: 100%; height: 10rem; object-fit: cover; border-radius: 1rem; display: block; transition: transform .32s ease, filter .32s ease; }
+    .proj-art img:hover { transform: scale(1.02); filter: saturate(1.08) brightness(1.04); }
 
     /* contact input */
     .cmd-input { font-family: var(--font-mono); background: transparent; color: var(--text-main); caret-color: var(--strawberry); outline: none; width: 100%; }
-    .cmd-input::placeholder { color: rgba(123,90,82,0.35); }
+    .cmd-input::placeholder { color: rgba(148, 163, 184, 0.5); }
+
+    .typing-target { display: inline-block; white-space: pre-wrap; }
+    .typing-target::after { content: ""; display: inline-block; width: 2px; height: 1.1em; margin-left: 0.25rem; background: var(--pastel-pink); animation: blink 0.8s step-end infinite; vertical-align: bottom; }
 
     /* reveal */
-    .reveal { opacity: 0; transform: translateY(18px); transition: opacity .6s ease, transform .6s ease; }
+    .reveal { opacity: 0; transform: translateY(22px) scale(0.98); transition: opacity .7s ease, transform .7s ease; }
     .reveal.in-view { opacity: 1; transform: none; }
+
+    @keyframes float {
+      from { transform: translateY(0px); }
+      to { transform: translateY(-14px); }
+    }
+    @keyframes bgShift {
+      from { background-position: 0% 0%; }
+      to { background-position: 100% 100%; }
+    }
+    @keyframes blink {
+      50% { opacity: 0; }
+    }
 
     @media (prefers-reduced-motion: reduce) {
       html { scroll-behavior: auto; }
       .reveal { opacity: 1; transform: none; transition: none; }
-      .card-hover { transition: none; }
+      .card-hover,
+      .btn-primary,
+      .btn-ghost,
+      .proj-art img { transition: none; }
+      .typing-target::after { animation: none; }
     }
   </style>
 </head>
@@ -167,9 +200,8 @@
       <div class="mx-auto max-w-6xl px-5 grid lg:grid-cols-2 gap-14 items-center w-full">
         <div>
           <p class="section-tag reveal">// Soft Bakery Systems Designer · Pastry Engineer · Coffee Lover</p>
-          <h1 class="reveal mt-5 text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-[1.1] tracking-tight" data-delay="1">
-            คราฟต์โค้ดด้วยความใส่ใจ เสิร์ฟ<br />
-            ผลิตภัณฑ์ดิจิทัลรสเลิศ
+          <h1 id="hero-title" class="reveal mt-5 text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-[1.1] tracking-tight" data-delay="1">
+            <span class="typing-target"></span>
           </h1>
           <p class="reveal mt-6 max-w-xl text-base sm:text-lg text-slate-400 leading-relaxed font-light" data-delay="2">
             สวัสดีครับ ผม <strong class="text-pink-500 font-semibold">ณัฐกฤต อนันต์ฤทธิ์กุล</strong> — ผสานทักษะด้าน Full-Stack, AI และ UX เข้าไว้ด้วยกัน เพื่อสร้างประสบการณ์ที่อ่านง่าย ผ่านดีไซน์ที่เป็นมิตรและโค้ดที่แข็งแรง
@@ -475,7 +507,10 @@
         var io = new IntersectionObserver(function (entries) {
           entries.forEach(function (entry) {
             if (entry.isIntersecting) {
-              entry.target.classList.add("in-view");
+              var delay = parseFloat(entry.target.dataset.delay || 0) * 240;
+              window.setTimeout(function () {
+                entry.target.classList.add("in-view");
+              }, delay);
               io.unobserve(entry.target);
             }
           });
@@ -483,6 +518,40 @@
         reveals.forEach(function (el) { io.observe(el); });
       } else {
         reveals.forEach(function (el) { el.classList.add("in-view"); });
+      }
+
+      /* ---------------- hero typing effect ---------------- */
+      var heroTarget = document.querySelector("#hero-title .typing-target");
+      if (heroTarget) {
+        var heroLines = [
+          "คราฟต์โค้ดด้วยความใส่ใจ ",
+          "เสิร์ฟ ",
+          "ผลิตภัณฑ์ดิจิทัลรสเลิศ"
+        ];
+        var heroLineIndex = 0;
+        var heroCharIndex = 0;
+
+        function typeHero() {
+          if (heroLineIndex >= heroLines.length) {
+            heroTarget.classList.add("typed");
+            return;
+          }
+          if (heroCharIndex < heroLines[heroLineIndex].length) {
+            heroTarget.innerHTML += heroLines[heroLineIndex].charAt(heroCharIndex);
+            heroCharIndex++;
+            window.setTimeout(typeHero, 45);
+          } else {
+            heroLineIndex++;
+            if (heroLineIndex < heroLines.length) {
+              heroTarget.innerHTML += "<br />";
+              heroCharIndex = 0;
+              window.setTimeout(typeHero, 180);
+            } else {
+              heroTarget.classList.add("typed");
+            }
+          }
+        }
+        window.setTimeout(typeHero, 700);
       }
 
       /* ---------------- contact form ---------------- */
