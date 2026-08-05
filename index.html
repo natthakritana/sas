@@ -11,13 +11,13 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
     :root {
-      --bg-cream: #FAF6F0;
-      --panel: rgba(255, 255, 255, 0.9);
-      --cinnamon: #C88A66;
-      --pastel-pink: #FFB7C5;
-      --strawberry: #FF8DAA;
-      --text-main: #3E2C2A; /* warm coffee brown */
-      --text-dim: #7B5A52;
+      --bg-cream: #050816;
+      --panel: rgba(15, 23, 42, 0.92);
+      --cinnamon: #7C3AED;
+      --pastel-pink: #EC4899;
+      --strawberry: #F472B6;
+      --text-main: #F8FAFC;
+      --text-dim: #94A3B8;
       --font-sans: "Prompt", "Inter", system-ui, sans-serif;
       --font-mono: "JetBrains Mono", monospace;
     }
@@ -29,13 +29,13 @@
       font-family: var(--font-sans);
       overflow-x: hidden;
     }
-    ::selection { background: rgba(255, 183, 197, 0.4); color: #3E2C2A; }
+    ::selection { background: rgba(236, 72, 153, 0.35); color: #0F172A; }
 
     /* soft ambient shapes */
     .bg-fx { position: fixed; inset: 0; z-index: -2; pointer-events: none; }
-    .bg-aura { position: absolute; border-radius: 50%; filter: blur(80px); opacity: 0.18; }
-    .bg-aura.warm { width: 520px; height: 520px; top: -120px; right: -80px; background: var(--cinnamon); }
-    .bg-aura.pink { width: 420px; height: 420px; top: 40%; left: -120px; background: var(--pastel-pink); }
+    .bg-aura { position: absolute; border-radius: 50%; filter: blur(90px); opacity: 0.2; }
+    .bg-aura.warm { width: 520px; height: 520px; top: -120px; right: -80px; background: rgba(236, 72, 153, 0.35); }
+    .bg-aura.pink { width: 420px; height: 420px; top: 40%; left: -120px; background: rgba(124, 58, 237, 0.22); }
 
     /* typography helpers */
     .mono { font-family: var(--font-mono); }
@@ -43,57 +43,61 @@
       font-family: var(--font-mono);
       letter-spacing: 0.12em;
       font-size: 0.75rem;
-      color: var(--cinnamon);
+      color: var(--pastel-pink);
       text-transform: uppercase;
     }
     .text-pink-500 { color: var(--pastel-pink) !important; }
     .text-pink-400 { color: var(--strawberry) !important; }
     .text-fuchsia-400 { color: var(--cinnamon) !important; }
+    .text-slate-700 { color: #E2E8F0 !important; }
+    .text-slate-500 { color: #94A3B8 !important; }
+    .text-slate-400 { color: #7C93B1 !important; }
+    .text-brown-700 { color: var(--text-main) !important; }
     .hover\:text-pink-400:hover { color: var(--strawberry) !important; }
-    .focus-within\:border-pink-500:focus-within { border-color: rgba(255, 183, 197, 0.6) !important; }
+    .focus-within\:border-pink-500:focus-within { border-color: rgba(236, 72, 153, 0.6) !important; }
 
     /* soft glass / card */
     .glass {
       background: var(--panel);
-      border: 1px solid rgba(200,150,140,0.3);
+      border: 1px solid rgba(148, 163, 184, 0.16);
       border-radius: 1.25rem;
-      box-shadow: 0 8px 24px rgba(99,58,48,0.08);
+      box-shadow: 0 16px 48px rgba(15, 23, 42, 0.42);
     }
 
     /* gentle hover */
     .card-hover { transition: transform .25s ease, border-color .25s ease, box-shadow .25s ease; }
-    .card-hover:hover { transform: translateY(-6px); box-shadow: 0 18px 36px rgba(99,58,48,0.12); }
+    .card-hover:hover { transform: translateY(-6px); box-shadow: 0 24px 48px rgba(148, 163, 184, 0.18); }
 
     .btn-primary {
       font-family: var(--font-mono);
-      background: linear-gradient(180deg, rgba(255,183,197,0.9), rgba(255,183,197,0.8));
-      border: 1px solid rgba(200,130,110,0.3);
-      color: #5A2F2A;
-      box-shadow: 0 6px 18px rgba(255,183,197,0.25);
+      background: linear-gradient(180deg, rgba(236, 72, 153, 0.95), rgba(124, 58, 237, 0.92));
+      border: 1px solid rgba(236, 72, 153, 0.3);
+      color: #F8FAFC;
+      box-shadow: 0 8px 24px rgba(236, 72, 153, 0.18);
       transition: all .18s ease;
     }
     .btn-primary:hover { transform: translateY(-2px); }
 
     .btn-ghost {
       font-family: var(--font-mono);
-      border: 1px solid rgba(120,90,80,0.12);
+      border: 1px solid rgba(148, 163, 184, 0.2);
       color: var(--text-dim);
-      background: transparent;
+      background: rgba(255, 255, 255, 0.04);
       transition: all .18s ease;
     }
-    .btn-ghost:hover { color: var(--text-main); box-shadow: 0 8px 18px rgba(120,90,80,0.06); }
+    .btn-ghost:hover { color: #F8FAFC; box-shadow: 0 10px 22px rgba(124, 58, 237, 0.18); }
 
     /* nav */
     .nav-link { font-family: var(--font-mono); letter-spacing: 0.08em; color: var(--text-dim); transition: color .18s ease; }
     .nav-link:hover { color: var(--cinnamon); }
 
     /* badges */
-    .badge { font-family: var(--font-mono); font-size: 0.72rem; padding: 0.35rem 0.8rem; border-radius: 999px; border: 1px solid rgba(200,150,140,0.12); color: var(--text-main); background: rgba(255,245,240,0.8); }
+    .badge { font-family: var(--font-mono); font-size: 0.72rem; padding: 0.35rem 0.8rem; border-radius: 999px; border: 1px solid rgba(148, 163, 184, 0.18); color: var(--text-main); background: rgba(255, 255, 255, 0.08); }
 
     /* recipe / menu card */
-    .recipe-card { font-family: var(--font-sans); background: #fff; border-radius: 1.5rem; padding: 0; overflow: hidden; border: 1px solid rgba(120,90,80,0.06); box-shadow: 0 12px 30px rgba(99,58,48,0.08); }
-    .recipe-card .card-top { padding: 0.8rem 1rem; background: linear-gradient(90deg, rgba(255,240,238,0.9), rgba(255,250,246,0.9)); }
-    .recipe-item { font-family: var(--font-mono); color: var(--text-dim); }
+    .recipe-card { font-family: var(--font-sans); background: rgba(15, 23, 42, 0.96); border-radius: 1.5rem; padding: 0; overflow: hidden; border: 1px solid rgba(148, 163, 184, 0.12); box-shadow: 0 16px 40px rgba(15, 23, 42, 0.42); }
+    .recipe-card .card-top { padding: 0.8rem 1rem; background: linear-gradient(90deg, rgba(15, 23, 42, 0.96), rgba(28, 41, 76, 0.96)); }
+    .recipe-item { font-family: var(--font-mono); color: var(--text-main); }
 
     /* status dot */
     .dot-live { width: 8px; height: 8px; border-radius: 50%; background: var(--strawberry); box-shadow: 0 0 8px rgba(255,140,170,0.18); }
@@ -167,14 +171,17 @@
             คราฟต์โค้ดด้วยความใส่ใจ เสิร์ฟ<br />
             ผลิตภัณฑ์ดิจิทัลรสเลิศ
           </h1>
-          <p class="reveal mt-6 max-w-lg text-base sm:text-lg text-slate-700 leading-relaxed font-light" data-delay="2">
-            สวัสดีครับ ผม <strong class="text-pink-400 font-semibold">ณัฐกฤต อนันต์ฤทธิ์กุล</strong> — สร้างประสบการณ์ดิจิทัลที่ละมุนและเป็นมืออาชีพ เหมือนขนมอบใหม่จากเตา
+          <p class="reveal mt-6 max-w-xl text-base sm:text-lg text-slate-400 leading-relaxed font-light" data-delay="2">
+            สวัสดีครับ ผม <strong class="text-pink-500 font-semibold">ณัฐกฤต อนันต์ฤทธิ์กุล</strong> — ผสานทักษะด้าน Full-Stack, AI และ UX เข้าไว้ด้วยกัน เพื่อสร้างประสบการณ์ที่อ่านง่าย ผ่านดีไซน์ที่เป็นมิตรและโค้ดที่แข็งแรง
           </p>
-          <div class="reveal mt-9 flex flex-wrap gap-4" data-delay="2">
-            <a href="#projects" class="btn-primary rounded-xl px-6 py-3.5 text-sm">
-              <span aria-hidden="true">▸</span> Execute: View_Projects()
-            </a>
-            <a href="#contact" class="btn-ghost rounded-xl px-6 py-3.5 text-sm">Init_Contact()</a>
+          <div class="reveal mt-9 space-y-4 max-w-xl" data-delay="2">
+            <p class="text-slate-500 leading-7">ผลงานของผมมักจะเริ่มจากการเข้าใจโจทย์ธุรกิจอย่างลึกซึ้ง ออกแบบสถาปัตยกรรมที่ปรับขยายได้ และทดสอบการใช้งานในทุกอุปกรณ์ ไม่ว่าจะเป็นแพลตฟอร์มเว็บแอป, ระบบ IoT หรือระบบอัตโนมัติหลังบ้าน</p>
+            <div class="flex flex-wrap gap-4">
+              <a href="#projects" class="btn-primary rounded-xl px-6 py-3.5 text-sm">
+                <span aria-hidden="true">▸</span> Execute: View_Projects()
+              </a>
+              <a href="#contact" class="btn-ghost rounded-xl px-6 py-3.5 text-sm">Init_Contact()</a>
+            </div>
           </div>
         </div>
 
@@ -203,27 +210,33 @@
         <h2 class="reveal mt-4 text-3xl sm:text-4xl font-bold tracking-tight" data-delay="1">
           INGREDIENTS &amp; <span class="text-pink-500">SKILLS</span>
         </h2>
-        <p class="reveal mt-3 text-slate-700" data-delay="1">ส่วนผสมหลักและทักษะที่ใช้รังสรรค์ผลงาน</p>
+        <p class="reveal mt-3 text-slate-400" data-delay="1">ส่วนผสมหลักและทักษะที่ใช้รังสรรค์ผลงาน พร้อมบทบาทที่ผมทำได้ตั้งแต่ต้นน้ำถึงปลายน้ำ</p>
 
         <div class="mt-12 grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
           <!-- Frontend -->
           <div class="glass card-hover p-7 reveal">
             <div class="flex items-center justify-between">
-              <h3 class="mono text-sm font-bold tracking-widest text-white">FRONTEND ARTISTRY</h3>
-              <span class="mono text-2xl text-pink-500" style="text-shadow:0 0 14px rgba(255,79,162,0.8)">&lt;/&gt;</span>
+              <div>
+                <h3 class="mono text-sm font-bold tracking-widest text-white">FRONTEND ARTISTRY</h3>
+                <p class="text-xs text-slate-500 mt-1">Design systems · Accessibility · Motion</p>
+              </div>
+              <span class="mono text-2xl text-pink-500" style="text-shadow:0 0 14px rgba(236,72,153,0.8)">&lt;/&gt;</span>
             </div>
             <div class="mt-5 flex flex-wrap gap-2">
               <span class="badge">Next.js 15</span><span class="badge">React 19</span><span class="badge">TypeScript</span>
               <span class="badge">TailwindCSS</span><span class="badge">Vite</span><span class="badge">Three.js</span>
               <span class="badge">WebGL</span><span class="badge">Framer Motion</span><span class="badge">Sass</span>
             </div>
-            <p class="mt-5 text-sm text-slate-400 leading-relaxed">ดีไซน์ UI คมชัด ตอบสนองระดับลื่นไหล 120 FPS โทนเนียนกริบทุกพิกเซล</p>
+            <p class="mt-5 text-sm text-slate-400 leading-relaxed">สร้าง UI ที่อ่านง่ายและมีความคมชัดสูง รวมทั้งปรับแต่งการเคลื่อนไหวเพื่อความมั่นใจและประสบการณ์ใช้งานที่ลื่นไหล</p>
           </div>
 
           <!-- Backend -->
           <div class="glass card-hover p-7 reveal" data-delay="1">
             <div class="flex items-center justify-between">
-              <h3 class="mono text-sm font-bold tracking-widest text-white">BACKEND & CLOUD</h3>
+              <div>
+                <h3 class="mono text-sm font-bold tracking-widest text-white">BACKEND & CLOUD</h3>
+                <p class="text-xs text-slate-500 mt-1">APIs · Data pipelines · Scalable systems</p>
+              </div>
               <span class="mono text-2xl text-fuchsia-400" style="text-shadow:0 0 14px rgba(124,58,237,0.8)">{ }</span>
             </div>
             <div class="mt-5 flex flex-wrap gap-2">
@@ -231,21 +244,24 @@
               <span class="badge">FastAPI</span><span class="badge">PostgreSQL</span><span class="badge">Kubernetes</span>
               <span class="badge">Docker</span><span class="badge">GraphQL</span><span class="badge">Redis</span>
             </div>
-            <p class="mt-5 text-sm text-slate-400 leading-relaxed">สถาปัตยกรรม Microservices แบบยืดหยุ่น รองรับ Concurrent Requests มหาศาล</p>
+            <p class="mt-5 text-sm text-slate-400 leading-relaxed">ออกแบบระบบหลังบ้านที่ปลอดภัย เชื่อมต่อกับคลาวด์อย่างชาญฉลาด และรองรับการขยายตัวได้ในระยะยาว</p>
           </div>
 
           <!-- Hardware & AI -->
           <div class="glass card-hover p-7 reveal" data-delay="2">
             <div class="flex items-center justify-between">
-              <h3 class="mono text-sm font-bold tracking-widest text-white">EDGE AI & HARDWARE</h3>
-              <span class="mono text-2xl text-pink-400" style="text-shadow:0 0 14px rgba(255,79,162,0.7)">⚡</span>
+              <div>
+                <h3 class="mono text-sm font-bold tracking-widest text-white">EDGE AI & HARDWARE</h3>
+                <p class="text-xs text-slate-500 mt-1">Embedded systems · Smart automation · Computer vision</p>
+              </div>
+              <span class="mono text-2xl text-pink-400" style="text-shadow:0 0 14px rgba(236,72,153,0.7)">⚡</span>
             </div>
             <div class="mt-5 flex flex-wrap gap-2">
               <span class="badge">PyTorch</span><span class="badge">Edge AI</span><span class="badge">Docker</span>
               <span class="badge">Kafka</span><span class="badge">ESP32</span><span class="badge">MQTT</span>
               <span class="badge">TensorFlow</span><span class="badge">OpenCV</span><span class="badge">ONNX</span>
             </div>
-            <p class="mt-5 text-sm text-slate-400 leading-relaxed">ระบบประมวลผลข้อมูลอัจฉริยะ อุปกรณ์ IoT ติดสปีดไปจนถึง AI Vision Model</p>
+            <p class="mt-5 text-sm text-slate-400 leading-relaxed">ผสานซอฟต์แวร์กับฮาร์ดแวร์ เพื่อสร้างระบบอัจฉริยะที่ตอบโจทย์การประมวลผลแบบเรียลไทม์และการสื่อสารข้ามอุปกรณ์</p>
           </div>
         </div>
       </div>
@@ -258,7 +274,7 @@
         <h2 class="reveal mt-4 text-3xl sm:text-4xl font-bold tracking-tight" data-delay="1">
           FRESHLY <span class="text-pink-500">BAKED</span>
         </h2>
-        <p class="reveal mt-3 text-slate-700" data-delay="1">ผลงานอบใหม่ที่ผสมผสานความคิดสร้างสรรค์และเทคนิค</p>
+        <p class="reveal mt-3 text-slate-400" data-delay="1">ผลงานอบใหม่ที่ผสมผสานความคิดสร้างสรรค์และเทคนิค พร้อมเรื่องราวทางธุรกิจและผลลัพธ์เชิงปริมาณ</p>
 
         <div class="mt-12 grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
           <!-- Project 1 -->
@@ -268,7 +284,8 @@
             </div>
             <div class="mt-5 flex-1 flex flex-col">
               <h3 class="text-lg font-bold">Gourmet Vision AI</h3>
-              <p class="mt-2 text-sm text-slate-400 leading-relaxed">Computer Vision ตรวจจับเมนูอาหาร วิเคราะห์ส่วนผสมและแคลอรีอัตโนมัติด้วย PyTorch สปีดประมวลผลต่ำกว่า 50ms</p>
+              <p class="mt-2 text-sm text-slate-400 leading-relaxed">Computer Vision ตรวจจับเมนูอาหาร วิเคราะห์ส่วนผสมและแคลอรีอัตโนมัติด้วย PyTorch สปีดประมวลผลต่ำกว่า 50ms สำหรับร้านอาหารและบริการจัดส่ง</p>
+              <p class="mt-3 text-xs text-slate-500">ผลลัพธ์: ลดเวลาแคตตาล็อกเมนู 70% และเพิ่มความแม่นยำการจัดสรรวัตถุดิบ</p>
               <div class="mt-4 flex flex-wrap gap-2">
                 <span class="badge">Rust</span><span class="badge">PyTorch</span><span class="badge">React</span>
               </div>
@@ -283,7 +300,8 @@
             </div>
             <div class="mt-5 flex-1 flex flex-col">
               <h3 class="text-lg font-bold">OmniBite POS Gateway</h3>
-              <p class="mt-2 text-sm text-slate-400 leading-relaxed">Distributed POS Gateway ประมวลผลธุรกรรมร้านอาหารระดับแฟรนไชส์มากกว่า 1.5 ล้าน รายการ/วินาที แบบ Zero Downtime</p>
+              <p class="mt-2 text-sm text-slate-400 leading-relaxed">Distributed POS Gateway ประมวลผลธุรกรรมร้านอาหารระดับแฟรนไชส์มากกว่า 1.5 ล้าน รายการ/วินาที แบบ Zero Downtime โดยมีวงจรการติดตามสินค้าคงคลังในตัว</p>
+              <p class="mt-3 text-xs text-slate-500">ผลลัพธ์: ลดเวลาการชำระเงิน 40% และเพิ่มความเสถียรของระบบในช่วงพีค</p>
               <div class="mt-4 flex flex-wrap gap-2">
                 <span class="badge">Go</span><span class="badge">Kafka</span><span class="badge">Kubernetes</span>
                 <span class="badge">Docker</span><span class="badge">PostgreSQL</span>
@@ -299,7 +317,8 @@
             </div>
             <div class="mt-5 flex-1 flex flex-col">
               <h3 class="text-lg font-bold">ThermoKitchen IoT</h3>
-              <p class="mt-2 text-sm text-slate-400 leading-relaxed">ระบบ IoT ควบคุมอุณหภูมิการทำอาหารระดับความแม่นยำสูง (Precision Sous-Vide) สตรีม telemetry ผ่าน MQTT สู่ Dashboard</p>
+              <p class="mt-2 text-sm text-slate-400 leading-relaxed">ระบบ IoT ควบคุมอุณหภูมิการทำอาหารระดับความแม่นยำสูง (Precision Sous-Vide) สตรีม telemetry ผ่าน MQTT สู่ Dashboard และเตือนสถานะแบบเรียลไทม์</p>
+              <p class="mt-3 text-xs text-slate-500">ผลลัพธ์: เพิ่มความแม่นยำการปรุงอาหาร 98% และลดข้อผิดพลาดการจัดการอุณหภูมิ</p>
               <div class="mt-4 flex flex-wrap gap-2">
                 <span class="badge">ESP32</span><span class="badge">MQTT</span><span class="badge">Next.js</span>
                 <span class="badge">GraphQL</span>
@@ -315,7 +334,8 @@
             </div>
             <div class="mt-5 flex-1 flex flex-col">
               <h3 class="text-lg font-bold">Quantum Bento Engine</h3>
-              <p class="mt-2 text-sm text-slate-400 leading-relaxed">แพลตฟอร์มจัดคิวอาหารอัจฉริยะ ทำงานด้วย AI ตอบโจทย์การจัดส่งเรียลไทม์และจัดสต็อกวัตถุดิบแบบอัตโนมัติ</p>
+              <p class="mt-2 text-sm text-slate-400 leading-relaxed">แพลตฟอร์มจัดคิวอาหารอัจฉริยะ ทำงานด้วย AI ตอบโจทย์การจัดส่งเรียลไทม์และจัดสต็อกวัตถุดิบแบบอัตโนมัติ พร้อมแดชบอร์ดหนึ่งเดียวที่ติดตามสถานะทั้งหมด</p>
+              <p class="mt-3 text-xs text-slate-500">ผลลัพธ์: ลดเวลารอออร์เดอร์ลง 30% และเพิ่มความแม่นยำในการสต็อกวัตถุดิบ</p>
               <div class="mt-4 flex flex-wrap gap-2">
                 <span class="badge">React</span><span class="badge">Firebase</span><span class="badge">Tailwind</span>
                 <span class="badge">Node.js</span><span class="badge">Cloud Functions</span>
@@ -335,7 +355,7 @@
         <h2 class="reveal mt-4 text-3xl sm:text-4xl font-bold tracking-tight text-center" data-delay="1">
           OPEN A <span class="text-pink-500">CHANNEL</span>
         </h2>
-        <p class="reveal mt-3 text-center text-slate-400" data-delay="1">มีโปรเจกต์โหดๆ หรือร้านเด็ดชวนไปชิม? ส่งข้อความมาได้เลยครับ</p>
+        <p class="reveal mt-3 text-center text-slate-400" data-delay="1">มีโปรเจกต์โหดๆ หรือร้านเด็ดชวนไปชิม? ส่งข้อความมาได้เลยครับ ผมพร้อมช่วยวางแผนและลงมือทำจริง</p>
 
         <form id="contact-form" class="glass mt-12 p-6 sm:p-8 reveal" data-delay="1" novalidate>
           <div class="mono text-xs text-slate-400">natthakrit@client:~$ send_message --to developer</div>
@@ -346,14 +366,16 @@
               <input id="email" name="email" type="email" required placeholder="your.email@domain.com"
                      class="cmd-input text-sm bg-transparent" />
             </div>
+            <p class="mt-2 text-xs text-slate-500">กรุณากรอกอีเมลสำหรับติดต่อกลับ หากมีแนวทางโจทย์หรือระยะเวลาแจ้งไว้จะช่วยให้ตอบได้รวดเร็วยิ่งขึ้น</p>
           </div>
           <div class="mt-6">
             <label for="message" class="mono text-xs text-slate-400">body (message):</label>
             <div class="mt-2 flex items-start gap-2 border-b border-white/15 pb-2 focus-within:border-pink-500 transition-colors">
               <span class="mono text-pink-500">$</span>
-              <textarea id="message" name="message" required rows="3" placeholder="ระบุโปรเจกต์ หรือข้อความที่ต้องการติดต่อ..."
+              <textarea id="message" name="message" required rows="4" placeholder="ระบุโปรเจกต์ หรือข้อความที่ต้องการติดต่อ..."
                         class="cmd-input text-sm resize-none bg-transparent"></textarea>
             </div>
+            <p class="mt-2 text-xs text-slate-500">อยากได้เว็บ, ระบบหลังบ้าน, AI หรือระบบ IoT? บอกโจทย์และเป้าหมายมาเลยครับ</p>
           </div>
           <div class="mt-7 flex flex-wrap items-center gap-4">
             <button type="submit" class="btn-primary rounded-xl px-6 py-3 text-sm">
