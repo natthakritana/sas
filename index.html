@@ -1,25 +1,26 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="th">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>NEON://portfolio — Full Stack Developer</title>
-  <meta name="description" content="Futuristic full stack developer portfolio. Building digital & physical realities with React, Python, Node, IoT and Edge AI." />
+  <title>NATTHAKRIT // Full-Stack Architect & Foodie</title>
+  <meta name="description" content="Portfolio of Natthakrit Ananrithikul — Full Stack Architect converting calories into clean high-performance code." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&family=Prompt:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
     :root {
-      --bg-deep: #0B0F19;
-      --bg-panel: rgba(255, 255, 255, 0.04);
-      --cyan: #00F0FF;
-      --purple: #B026FF;
-      --neon: #39FF14;
-      --text-main: #E6F1FF;
-      --text-dim: #7B8CA8;
-      --font-sans: "Inter", system-ui, -apple-system, sans-serif;
-      --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+      --bg-deep: #050508;
+      --bg-panel: rgba(255, 255, 255, 0.03);
+      --pink: #FF007F;
+      --pink-neon: #FF2A85;
+      --purple: #9D00FF;
+      --neon: #FF0055;
+      --text-main: #F4F4F9;
+      --text-dim: #8F90A6;
+      --font-sans: "Prompt", "Inter", system-ui, sans-serif;
+      --font-mono: "JetBrains Mono", monospace;
     }
 
     html { scroll-behavior: smooth; }
@@ -29,30 +30,30 @@
       font-family: var(--font-sans);
       overflow-x: hidden;
     }
-    ::selection { background: rgba(0, 240, 255, 0.25); color: #fff; }
+    ::selection { background: rgba(255, 0, 127, 0.35); color: #fff; }
 
     /* ---------- ambient background layers ---------- */
     .bg-fx { position: fixed; inset: 0; z-index: -2; pointer-events: none; }
     .bg-grid {
       position: absolute; inset: 0;
       background-image:
-        linear-gradient(rgba(0, 240, 255, 0.045) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(0, 240, 255, 0.045) 1px, transparent 1px);
-      background-size: 44px 44px;
+        linear-gradient(rgba(255, 0, 127, 0.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 0, 127, 0.05) 1px, transparent 1px);
+      background-size: 40px 40px;
       mask-image: radial-gradient(ellipse 90% 70% at 50% 0%, black 30%, transparent 100%);
       -webkit-mask-image: radial-gradient(ellipse 90% 70% at 50% 0%, black 30%, transparent 100%);
     }
     .bg-aura {
       position: absolute;
       border-radius: 50%;
-      filter: blur(90px);
-      opacity: 0.22;
+      filter: blur(100px);
+      opacity: 0.25;
     }
-    .bg-aura.cyan   { width: 520px; height: 520px; top: -140px; right: -120px; background: var(--cyan); }
-    .bg-aura.purple { width: 460px; height: 460px; top: 40%; left: -160px; background: var(--purple); }
+    .bg-aura.pink   { width: 550px; height: 550px; top: -140px; right: -120px; background: var(--pink); }
+    .bg-aura.purple { width: 500px; height: 500px; top: 40%; left: -160px; background: var(--purple); }
     .scanlines {
       position: absolute; inset: 0;
-      background: repeating-linear-gradient(0deg, rgba(255,255,255,0.028) 0 1px, transparent 1px 3px);
+      background: repeating-linear-gradient(0deg, rgba(255,255,255,0.02) 0 1px, transparent 1px 3px);
       mix-blend-mode: overlay;
     }
 
@@ -61,42 +62,40 @@
     .section-tag {
       font-family: var(--font-mono);
       letter-spacing: 0.2em;
-      font-size: 0.72rem;
-      color: var(--cyan);
+      font-size: 0.75rem;
+      color: var(--pink);
       text-transform: uppercase;
     }
 
     /* ---------- glass ---------- */
     .glass {
-      background: rgba(255, 255, 255, 0.04);
-      backdrop-filter: blur(14px);
-      -webkit-backdrop-filter: blur(14px);
-      border: 1px solid rgba(255, 255, 255, 0.08);
+      background: rgba(18, 12, 20, 0.5);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(255, 0, 127, 0.15);
       border-radius: 1rem;
-    }
-    @supports not (backdrop-filter: blur(14px)) {
-      .glass { background: rgba(11, 15, 25, 0.92); }
     }
 
     /* ---------- glow / hover ---------- */
     .card-hover { transition: transform .25s ease, border-color .25s ease, box-shadow .25s ease; }
     .card-hover:hover {
       transform: translateY(-6px);
-      border-color: rgba(0, 240, 255, 0.55);
-      box-shadow: 0 0 26px rgba(0, 240, 255, 0.22), 0 0 70px rgba(176, 38, 255, 0.14);
+      border-color: rgba(255, 0, 127, 0.6);
+      box-shadow: 0 0 30px rgba(255, 0, 127, 0.25), 0 0 70px rgba(157, 0, 255, 0.15);
     }
 
     .btn-primary {
       font-family: var(--font-mono);
-      background: rgba(0, 240, 255, 0.08);
-      border: 1px solid rgba(0, 240, 255, 0.55);
-      color: var(--cyan);
-      box-shadow: 0 0 14px rgba(0, 240, 255, 0.28), inset 0 0 14px rgba(0, 240, 255, 0.08);
-      transition: box-shadow .2s ease, background .2s ease, transform .2s ease;
+      background: rgba(255, 0, 127, 0.12);
+      border: 1px solid rgba(255, 0, 127, 0.6);
+      color: #FF66B2;
+      box-shadow: 0 0 16px rgba(255, 0, 127, 0.3), inset 0 0 14px rgba(255, 0, 127, 0.1);
+      transition: all .2s ease;
     }
     .btn-primary:hover {
-      background: rgba(0, 240, 255, 0.16);
-      box-shadow: 0 0 30px rgba(0, 240, 255, 0.55), 0 0 90px rgba(0, 240, 255, 0.25), inset 0 0 20px rgba(0, 240, 255, 0.15);
+      background: rgba(255, 0, 127, 0.25);
+      color: #FFF;
+      box-shadow: 0 0 32px rgba(255, 0, 127, 0.6), inset 0 0 20px rgba(255, 0, 127, 0.2);
     }
     .btn-primary:active { transform: scale(0.98); }
 
@@ -107,9 +106,9 @@
       transition: all .2s ease;
     }
     .btn-ghost:hover {
-      border-color: var(--purple);
+      border-color: var(--pink-neon);
       color: var(--text-main);
-      box-shadow: 0 0 22px rgba(176, 38, 255, 0.4);
+      box-shadow: 0 0 22px rgba(255, 42, 133, 0.4);
     }
 
     /* ---------- nav ---------- */
@@ -120,8 +119,8 @@
       transition: color .2s ease, text-shadow .2s ease;
     }
     .nav-link:hover {
-      color: var(--cyan);
-      text-shadow: 0 0 12px rgba(0, 240, 255, 0.8);
+      color: var(--pink);
+      text-shadow: 0 0 12px rgba(255, 0, 127, 0.8);
     }
 
     /* ---------- tech badges ---------- */
@@ -130,45 +129,44 @@
       font-size: 0.72rem;
       padding: 0.3rem 0.7rem;
       border-radius: 999px;
-      border: 1px solid rgba(255, 255, 255, 0.12);
+      border: 1px solid rgba(255, 0, 127, 0.2);
       color: var(--text-main);
-      background: rgba(255, 255, 255, 0.03);
-      transition: border-color .2s ease, box-shadow .2s ease, color .2s ease;
+      background: rgba(255, 0, 127, 0.05);
+      transition: all .2s ease;
     }
-    .badge:hover { border-color: var(--cyan); color: var(--cyan); box-shadow: 0 0 12px rgba(0, 240, 255, 0.35); }
+    .badge:hover { border-color: var(--pink); color: var(--pink-neon); box-shadow: 0 0 12px rgba(255, 0, 127, 0.4); }
 
     /* ---------- terminal ---------- */
     .terminal {
       font-family: var(--font-mono);
-      background: rgba(8, 12, 22, 0.85);
-      backdrop-filter: blur(10px);
-      -webkit-backdrop-filter: blur(10px);
-      border: 1px solid rgba(0, 240, 255, 0.25);
+      background: rgba(10, 6, 12, 0.9);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 0, 127, 0.3);
       border-radius: 0.9rem;
-      box-shadow: 0 0 34px rgba(0, 240, 255, 0.16), 0 20px 60px rgba(0, 0, 0, 0.5);
+      box-shadow: 0 0 35px rgba(255, 0, 127, 0.18), 0 20px 60px rgba(0, 0, 0, 0.8);
       overflow: hidden;
     }
     .terminal-bar {
       display: flex; align-items: center; gap: 0.5rem;
       padding: 0.7rem 1rem;
-      background: rgba(255, 255, 255, 0.04);
-      border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+      background: rgba(255, 255, 255, 0.03);
+      border-bottom: 1px solid rgba(255, 0, 127, 0.15);
     }
     .t-dot { width: 11px; height: 11px; border-radius: 50%; }
     .t-line { min-height: 1.5rem; line-height: 1.5rem; }
-    .t-prompt { color: var(--cyan); }
+    .t-prompt { color: var(--pink); }
     .t-cmd { color: var(--text-main); }
     .t-out { color: var(--text-dim); }
     .t-cursor {
       display: inline-block; width: 0.6em; height: 1.15em;
-      background: var(--cyan); vertical-align: text-bottom;
-      box-shadow: 0 0 10px rgba(0, 240, 255, 0.9);
+      background: var(--pink); vertical-align: text-bottom;
+      box-shadow: 0 0 10px rgba(255, 0, 127, 0.9);
       animation: blink 1s steps(1) infinite;
     }
     @keyframes blink { 50% { opacity: 0; } }
 
     /* ---------- status dot ---------- */
-    .dot-live { width: 8px; height: 8px; border-radius: 50%; background: var(--neon); box-shadow: 0 0 8px var(--neon); animation: pulse 2s ease-in-out infinite; }
+    .dot-live { width: 8px; height: 8px; border-radius: 50%; background: var(--pink); box-shadow: 0 0 10px var(--pink); animation: pulse 2s ease-in-out infinite; }
     @keyframes pulse { 0%,100% { opacity: 1; } 50% { opacity: 0.35; } }
 
     /* ---------- project art placeholder ---------- */
@@ -177,37 +175,35 @@
       height: 10rem;
       border-radius: 0.75rem;
       overflow: hidden;
-      border: 1px solid rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 0, 127, 0.15);
     }
     .proj-art .grid-lines {
       position: absolute; inset: 0;
       background-image:
-        linear-gradient(rgba(0,240,255,0.12) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(0,240,255,0.12) 1px, transparent 1px);
+        linear-gradient(rgba(255,0,127,0.15) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,0,127,0.15) 1px, transparent 1px);
       background-size: 22px 22px;
     }
     .proj-art .emblem {
       position: absolute; inset: 0;
       display: grid; place-items: center;
-      font-family: var(--font-mono);
-      font-size: 2.2rem;
-      color: rgba(255, 255, 255, 0.75);
-      text-shadow: 0 0 18px rgba(0,240,255,0.6);
+      font-size: 2.5rem;
+      text-shadow: 0 0 20px rgba(255,0,127,0.8);
     }
-    .proj-art.grad-cyan { background: linear-gradient(135deg, rgba(0,240,255,0.28), rgba(11,15,25,0.4) 60%); }
-    .proj-art.grad-purple { background: linear-gradient(135deg, rgba(176,38,255,0.3), rgba(11,15,25,0.4) 60%); }
-    .proj-art.grad-mixed { background: linear-gradient(135deg, rgba(0,240,255,0.2) 0%, rgba(176,38,255,0.26) 100%); }
+    .proj-art.grad-pink { background: linear-gradient(135deg, rgba(255,0,127,0.3), rgba(5,5,8,0.8) 70%); }
+    .proj-art.grad-purple { background: linear-gradient(135deg, rgba(157,0,255,0.35), rgba(5,5,8,0.8) 70%); }
+    .proj-art.grad-mixed { background: linear-gradient(135deg, rgba(255,0,127,0.25) 0%, rgba(157,0,255,0.3) 100%); }
 
     /* ---------- contact input ---------- */
     .cmd-input {
       font-family: var(--font-mono);
       background: transparent;
       color: var(--text-main);
-      caret-color: var(--cyan);
+      caret-color: var(--pink);
       outline: none;
       width: 100%;
     }
-    .cmd-input::placeholder { color: rgba(123, 140, 168, 0.7); }
+    .cmd-input::placeholder { color: rgba(143, 144, 166, 0.5); }
 
     /* ---------- scroll reveal ---------- */
     .reveal { opacity: 0; transform: translateY(22px); transition: opacity .7s ease, transform .7s ease; }
@@ -215,7 +211,6 @@
     .reveal[data-delay="1"] { transition-delay: .12s; }
     .reveal[data-delay="2"] { transition-delay: .24s; }
 
-    /* ---------- reduced motion ---------- */
     @media (prefers-reduced-motion: reduce) {
       html { scroll-behavior: auto; }
       .t-cursor, .dot-live { animation: none; }
@@ -229,7 +224,7 @@
   <!-- ambient background -->
   <div class="bg-fx" aria-hidden="true">
     <div class="bg-grid"></div>
-    <div class="bg-aura cyan"></div>
+    <div class="bg-aura pink"></div>
     <div class="bg-aura purple"></div>
     <div class="scanlines"></div>
   </div>
@@ -238,21 +233,19 @@
   <header class="fixed top-0 inset-x-0 z-50">
     <nav class="mx-auto max-w-6xl px-5">
       <div class="flex items-center justify-between py-4">
-        <a href="#home" class="mono text-sm font-bold tracking-widest text-white hover:text-cyan-300 transition">
-          <span class="text-cyan-400">&lt;</span>DEV<span class="text-fuchsia-400">/</span><span class="text-cyan-400">&gt;</span>__
+        <a href="#home" class="mono text-sm font-bold tracking-widest text-white hover:text-pink-400 transition">
+          <span class="text-pink-500">&lt;</span>NATTHAKRIT<span class="text-fuchsia-500">/</span><span class="text-pink-500">&gt;</span>__
         </a>
 
         <div class="hidden md:flex items-center gap-7">
-          <a href="#home"        class="nav-link text-xs">01 · HOME</a>
-          <a href="arsenal.html" class="nav-link text-xs">02 · ARSENAL</a>
-          <a href="projects.html" class="nav-link text-xs">03 · PROJECTS</a>
-          <a href="contact.html" class="nav-link text-xs">04 · CONTACT</a>
-          <a href="support.html" class="nav-link text-xs">05 · SUPPORT</a>
-          <a href="contact.html" class="btn-ghost rounded-lg px-4 py-2 text-xs">HIRE_ME</a>
+          <a href="#home"     class="nav-link text-xs">01 · HOME</a>
+          <a href="#arsenal"  class="nav-link text-xs">02 · ARSENAL</a>
+          <a href="#projects" class="nav-link text-xs">03 · PROJECTS</a>
+          <a href="#contact"  class="nav-link text-xs">04 · CONTACT</a>
+          <a href="#contact"  class="btn-ghost rounded-lg px-4 py-2 text-xs">HIRE_ME</a>
         </div>
 
-        <button id="nav-toggle" aria-label="Toggle navigation" aria-expanded="false"
-                class="md:hidden text-cyan-300 p-2">
+        <button id="nav-toggle" aria-label="Toggle navigation" aria-expanded="false" class="md:hidden text-pink-400 p-2">
           <svg id="nav-open-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
           <svg id="nav-close-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" class="hidden"><path d="M6 6l12 12M18 6L6 18"/></svg>
         </button>
@@ -260,11 +253,10 @@
 
       <div id="mobile-menu" class="hidden md:hidden glass mb-4 px-5 py-4">
         <div class="flex flex-col gap-4">
-          <a href="#home"        class="nav-link text-sm">01 · HOME</a>
-          <a href="arsenal.html" class="nav-link text-sm">02 · ARSENAL</a>
-          <a href="projects.html" class="nav-link text-sm">03 · PROJECTS</a>
-          <a href="contact.html" class="nav-link text-sm">04 · CONTACT</a>
-          <a href="support.html" class="nav-link text-sm">05 · SUPPORT</a>
+          <a href="#home"     class="nav-link text-sm">01 · HOME</a>
+          <a href="#arsenal"  class="nav-link text-sm">02 · ARSENAL</a>
+          <a href="#projects" class="nav-link text-sm">03 · PROJECTS</a>
+          <a href="#contact"  class="nav-link text-sm">04 · CONTACT</a>
         </div>
       </div>
     </nav>
@@ -275,21 +267,19 @@
     <section id="home" class="min-h-screen flex items-center pt-28 pb-16 scroll-mt-20">
       <div class="mx-auto max-w-6xl px-5 grid lg:grid-cols-2 gap-14 items-center w-full">
         <div>
-          <p class="section-tag reveal">// full-stack engineer · edge ai · iot</p>
-          <h1 class="reveal mt-5 text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-[1.08] tracking-tight" data-delay="1">
-            I BUILD <span class="text-cyan-400" style="text-shadow:0 0 24px rgba(0,240,255,0.6)">DIGITAL</span><br />
-            &amp; PHYSICAL <span class="text-fuchsia-400" style="text-shadow:0 0 24px rgba(176,38,255,0.6)">REALITIES</span>
+          <p class="section-tag reveal">// Full-Stack Architect · Food Enthusiast · Tech Lead</p>
+          <h1 class="reveal mt-5 text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-[1.1] tracking-tight" data-delay="1">
+            เปลี่ยน <span class="text-pink-500" style="text-shadow:0 0 24px rgba(255,0,127,0.7)">แคลอรี</span><br />
+            ให้กลายเป็น <span class="text-fuchsia-400" style="text-shadow:0 0 24px rgba(157,0,255,0.7)">สุดยอดโค้ด</span>
           </h1>
-          <p class="reveal mt-6 max-w-lg text-base sm:text-lg text-slate-400 leading-relaxed" data-delay="2">
-            Full stack developer engineering systems from the browser to the
-            circuit board — React UIs, Python backends, and edge AI running on
-            Raspberry Pi and ESP32.
+          <p class="reveal mt-6 max-w-lg text-base sm:text-lg text-slate-300 leading-relaxed font-light" data-delay="2">
+            สวัสดีครับ ผม <strong class="text-pink-400 font-semibold">ณัฐกฤต อนันต์ฤทธิ์กุล</strong> นักพัฒนาสายกินผู้เชื่อว่า อาหารจานเด็ดและกาแฟสเปเชียลตี้คือเชื้อเพลิงในการสร้าง High-Performance Microservices, Rust Backends และ WebGL UIs ระดับสเกลล้าน Users
           </p>
           <div class="reveal mt-9 flex flex-wrap gap-4" data-delay="2">
-            <a href="projects.html" class="btn-primary rounded-xl px-6 py-3.5 text-sm">
+            <a href="#projects" class="btn-primary rounded-xl px-6 py-3.5 text-sm">
               <span aria-hidden="true">▸</span> Execute: View_Projects()
             </a>
-            <a href="contact.html" class="btn-ghost rounded-xl px-6 py-3.5 text-sm">Init_Contact()</a>
+            <a href="#contact" class="btn-ghost rounded-xl px-6 py-3.5 text-sm">Init_Contact()</a>
           </div>
         </div>
 
@@ -299,7 +289,7 @@
               <span class="t-dot" style="background:#FF5F57"></span>
               <span class="t-dot" style="background:#FEBC2E"></span>
               <span class="t-dot" style="background:#28C840"></span>
-              <span class="ml-3 text-xs text-slate-400">pi@portfolio:~$</span>
+              <span class="ml-3 text-xs text-slate-400">natthakrit@foodie-node:~$</span>
               <span class="ml-auto flex items-center gap-2 text-[10px] text-slate-400">
                 <span class="dot-live"></span> ONLINE
               </span>
@@ -307,10 +297,9 @@
             <div id="terminal-body" class="p-5 text-[13px] sm:text-sm leading-7">
               <p class="t-line">
                 <span class="t-prompt">➜</span>
-                <span class="t-cmd"> init --project portfolio</span>
-                <span class="t-out">  (done)</span>
+                <span class="t-cmd"> init --profile natthakrit</span>
+                <span class="t-out">  (loaded)</span>
               </p>
-              <!-- typed lines injected here -->
               <p class="t-line"><span class="t-cursor"></span></p>
             </div>
           </div>
@@ -321,50 +310,50 @@
     <!-- ================= TECH STACK ================= -->
     <section id="arsenal" class="py-24 scroll-mt-20">
       <div class="mx-auto max-w-6xl px-5">
-        <p class="section-tag reveal">node://arsenal</p>
+        <p class="section-tag reveal">node://tech_stack</p>
         <h2 class="reveal mt-4 text-3xl sm:text-4xl font-bold tracking-tight" data-delay="1">
-          THE <span class="text-cyan-400">ARSENAL</span>
+          THE <span class="text-pink-500">ARSENAL</span>
         </h2>
-        <p class="reveal mt-3 text-slate-400" data-delay="1">Technologies wired into the stack.</p>
+        <p class="reveal mt-3 text-slate-400" data-delay="1">เทคโนโลยีและเครื่องมือระดับโปรที่เลือกใช้ขับเคลื่อนระบบ</p>
 
         <div class="mt-12 grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
           <!-- Frontend -->
           <div class="glass card-hover p-7 reveal">
             <div class="flex items-center justify-between">
-              <h3 class="mono text-sm font-bold tracking-widest text-white">FRONTEND</h3>
-              <span class="mono text-2xl text-cyan-400" style="text-shadow:0 0 14px rgba(0,240,255,0.8)">&lt;/&gt;</span>
+              <h3 class="mono text-sm font-bold tracking-widest text-white">FRONTEND ARTISTRY</h3>
+              <span class="mono text-2xl text-pink-500" style="text-shadow:0 0 14px rgba(255,0,127,0.8)">&lt;/&gt;</span>
             </div>
             <div class="mt-5 flex flex-wrap gap-2">
-              <span class="badge">React</span><span class="badge">TypeScript</span><span class="badge">Tailwind</span>
-              <span class="badge">Vite</span><span class="badge">Next.js</span><span class="badge">PWA</span>
+              <span class="badge">Next.js 15</span><span class="badge">React 19</span><span class="badge">TypeScript</span>
+              <span class="badge">TailwindCSS</span><span class="badge">Three.js</span><span class="badge">WebGL</span>
             </div>
-            <p class="mt-5 text-sm text-slate-400 leading-relaxed">Interactive, responsive interfaces with a neon-grade finish.</p>
+            <p class="mt-5 text-sm text-slate-400 leading-relaxed">ดีไซน์ UI คมชัด ตอบสนองระดับลื่นไหล 120 FPS โทนเนียนกริบทุกพิกเซล</p>
           </div>
 
           <!-- Backend -->
           <div class="glass card-hover p-7 reveal" data-delay="1">
             <div class="flex items-center justify-between">
-              <h3 class="mono text-sm font-bold tracking-widest text-white">BACKEND</h3>
-              <span class="mono text-2xl text-fuchsia-400" style="text-shadow:0 0 14px rgba(176,38,255,0.8)">{ }</span>
+              <h3 class="mono text-sm font-bold tracking-widest text-white">BACKEND & CLOUD</h3>
+              <span class="mono text-2xl text-fuchsia-400" style="text-shadow:0 0 14px rgba(157,0,255,0.8)">{ }</span>
             </div>
             <div class="mt-5 flex flex-wrap gap-2">
-              <span class="badge">Python</span><span class="badge">Node.js</span><span class="badge">FastAPI</span>
-              <span class="badge">PostgreSQL</span><span class="badge">Redis</span><span class="badge">Docker</span>
+              <span class="badge">Rust</span><span class="badge">Go</span><span class="badge">Python</span>
+              <span class="badge">FastAPI</span><span class="badge">PostgreSQL</span><span class="badge">Kubernetes</span>
             </div>
-            <p class="mt-5 text-sm text-slate-400 leading-relaxed">Resilient APIs and data pipelines powering real-time systems.</p>
+            <p class="mt-5 text-sm text-slate-400 leading-relaxed">สถาปัตยกรรม Microservices แบบยืดหยุ่น รองรับ Concurrent Requests มหาศาล</p>
           </div>
 
-          <!-- Infrastructure / Hardware -->
+          <!-- Hardware & AI -->
           <div class="glass card-hover p-7 reveal" data-delay="2">
             <div class="flex items-center justify-between">
-              <h3 class="mono text-sm font-bold tracking-widest text-white">HARDWARE</h3>
-              <span class="mono text-2xl text-green-400" style="text-shadow:0 0 14px rgba(57,255,20,0.7)">__</span>
+              <h3 class="mono text-sm font-bold tracking-widest text-white">EDGE AI & HARDWARE</h3>
+              <span class="mono text-2xl text-pink-400" style="text-shadow:0 0 14px rgba(255,0,127,0.7)">⚡</span>
             </div>
             <div class="mt-5 flex flex-wrap gap-2">
-              <span class="badge">Linux</span><span class="badge">Raspberry Pi</span><span class="badge">ESP32</span>
-              <span class="badge">IoT</span><span class="badge">MQTT</span><span class="badge">Edge AI</span>
+              <span class="badge">PyTorch</span><span class="badge">Edge AI</span><span class="badge">Docker</span>
+              <span class="badge">Kafka</span><span class="badge">ESP32</span><span class="badge">MQTT</span>
             </div>
-            <p class="mt-5 text-sm text-slate-400 leading-relaxed">From cloud clusters down to bare-metal microcontrollers.</p>
+            <p class="mt-5 text-sm text-slate-400 leading-relaxed">ระบบประมวลผลข้อมูลอัจฉริยะ อุปกรณ์ IoT ติดสปีดไปจนถึง AI Vision Model</p>
           </div>
         </div>
       </div>
@@ -373,26 +362,26 @@
     <!-- ================= PROJECTS ================= -->
     <section id="projects" class="py-24 scroll-mt-20">
       <div class="mx-auto max-w-6xl px-5">
-        <p class="section-tag reveal">repo://featured</p>
+        <p class="section-tag reveal">repo://deployments</p>
         <h2 class="reveal mt-4 text-3xl sm:text-4xl font-bold tracking-tight" data-delay="1">
-          FEATURED <span class="text-cyan-400">PROJECTS</span>
+          FEATURED <span class="text-pink-500">PROJECTS</span>
         </h2>
-        <p class="reveal mt-3 text-slate-400" data-delay="1">Selected deployments from the lab.</p>
+        <p class="reveal mt-3 text-slate-400" data-delay="1">ผลงานเด่นที่รวมเอาความหลงใหลและเทคโนโลยีระดับสูงเข้าไว้ด้วยกัน</p>
 
         <div class="mt-12 grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
           <!-- Project 1 -->
           <article class="glass card-hover p-5 flex flex-col reveal">
-            <div class="proj-art grad-cyan" aria-hidden="true">
+            <div class="proj-art grad-pink" aria-hidden="true">
               <div class="grid-lines"></div>
-              <span class="emblem">◈</span>
+              <span class="emblem">🍜</span>
             </div>
             <div class="mt-5 flex-1 flex flex-col">
-              <h3 class="text-lg font-bold">Edge Vision Hub</h3>
-              <p class="mt-2 text-sm text-slate-400 leading-relaxed">Realtime object detection served from a Raspberry Pi cluster to a live dashboard.</p>
+              <h3 class="text-lg font-bold">Gourmet Vision AI</h3>
+              <p class="mt-2 text-sm text-slate-400 leading-relaxed">Computer Vision ตรวจจับเมนูอาหาร วิเคราะห์ส่วนผสมและแคลอรีอัตโนมัติด้วย PyTorch สปีดประมวลผลต่ำกว่า 50ms</p>
               <div class="mt-4 flex flex-wrap gap-2">
-                <span class="badge">React</span><span class="badge">Python</span><span class="badge">Edge AI</span>
+                <span class="badge">Rust</span><span class="badge">PyTorch</span><span class="badge">React</span>
               </div>
-              <a href="#" class="btn-ghost rounded-lg mt-6 text-center px-4 py-2.5 text-xs w-full">⌘ Source Code</a>
+              <a href="https://github.com" target="_blank" rel="noopener" class="btn-ghost rounded-lg mt-6 text-center px-4 py-2.5 text-xs w-full">⌘ View Repository</a>
             </div>
           </article>
 
@@ -400,15 +389,15 @@
           <article class="glass card-hover p-5 flex flex-col reveal" data-delay="1">
             <div class="proj-art grad-purple" aria-hidden="true">
               <div class="grid-lines"></div>
-              <span class="emblem">◉</span>
+              <span class="emblem">⚡</span>
             </div>
             <div class="mt-5 flex-1 flex flex-col">
-              <h3 class="text-lg font-bold">Neon Mesh API</h3>
-              <p class="mt-2 text-sm text-slate-400 leading-relaxed">High-throughput API gateway handling millions of events with typed streaming.</p>
+              <h3 class="text-lg font-bold">OmniBite POS Gateway</h3>
+              <p class="mt-2 text-sm text-slate-400 leading-relaxed">Distributed POS Gateway ประมวลผลธุรกรรมร้านอาหารระดับแฟรนไชส์มากกว่า 1.5 ล้าน รายการ/วินาที แบบ Zero Downtime</p>
               <div class="mt-4 flex flex-wrap gap-2">
-                <span class="badge">Node.js</span><span class="badge">FastAPI</span><span class="badge">PostgreSQL</span>
+                <span class="badge">Go</span><span class="badge">Kafka</span><span class="badge">Kubernetes</span>
               </div>
-              <a href="#" class="btn-ghost rounded-lg mt-6 text-center px-4 py-2.5 text-xs w-full">⌘ Source Code</a>
+              <a href="https://github.com" target="_blank" rel="noopener" class="btn-ghost rounded-lg mt-6 text-center px-4 py-2.5 text-xs w-full">⌘ View Repository</a>
             </div>
           </article>
 
@@ -416,15 +405,15 @@
           <article class="glass card-hover p-5 flex flex-col reveal" data-delay="2">
             <div class="proj-art grad-mixed" aria-hidden="true">
               <div class="grid-lines"></div>
-              <span class="emblem">⬡</span>
+              <span class="emblem">☕</span>
             </div>
             <div class="mt-5 flex-1 flex flex-col">
-              <h3 class="text-lg font-bold">PulseSensor IoT</h3>
-              <p class="mt-2 text-sm text-slate-400 leading-relaxed">ESP32 sensor mesh streaming telemetry over MQTT to a live monitoring console.</p>
+              <h3 class="text-lg font-bold">ThermoKitchen IoT</h3>
+              <p class="mt-2 text-sm text-slate-400 leading-relaxed">ระบบ IoT ควบคุมอุณหภูมิการทำอาหารระดับความแม่นยำสูง (Precision Sous-Vide) สตรีม telemetry ผ่าน MQTT สู่ Dashboard</p>
               <div class="mt-4 flex flex-wrap gap-2">
-                <span class="badge">ESP32</span><span class="badge">MQTT</span><span class="badge">Linux</span>
+                <span class="badge">ESP32</span><span class="badge">MQTT</span><span class="badge">Next.js</span>
               </div>
-              <a href="#" class="btn-ghost rounded-lg mt-6 text-center px-4 py-2.5 text-xs w-full">⌘ Source Code</a>
+              <a href="https://github.com" target="_blank" rel="noopener" class="btn-ghost rounded-lg mt-6 text-center px-4 py-2.5 text-xs w-full">⌘ View Repository</a>
             </div>
           </article>
         </div>
@@ -436,25 +425,25 @@
       <div class="mx-auto max-w-3xl px-5">
         <p class="section-tag text-center reveal">net://contact_node</p>
         <h2 class="reveal mt-4 text-3xl sm:text-4xl font-bold tracking-tight text-center" data-delay="1">
-          OPEN A <span class="text-cyan-400">CHANNEL</span>
+          OPEN A <span class="text-pink-500">CHANNEL</span>
         </h2>
-        <p class="reveal mt-3 text-center text-slate-400" data-delay="1">Send a message to the server.</p>
+        <p class="reveal mt-3 text-center text-slate-400" data-delay="1">มีโปรเจกต์โหดๆ หรือร้านเด็ดชวนไปชิม? ส่งข้อความมาได้เลยครับ</p>
 
         <form id="contact-form" class="glass mt-12 p-6 sm:p-8 reveal" data-delay="1" novalidate>
-          <div class="mono text-xs text-slate-400">user@client:~$ send_message --to developer</div>
+          <div class="mono text-xs text-slate-400">natthakrit@client:~$ send_message --to developer</div>
           <div class="mt-4">
-            <label for="email" class="mono text-xs text-slate-400">from:</label>
-            <div class="mt-2 flex items-center gap-2 border-b border-white/15 pb-2 focus-within:border-cyan-400 transition-colors">
-              <span class="mono text-cyan-400">✉</span>
-              <input id="email" name="email" type="email" required placeholder="you@domain.com"
+            <label for="email" class="mono text-xs text-slate-400">from (email):</label>
+            <div class="mt-2 flex items-center gap-2 border-b border-white/15 pb-2 focus-within:border-pink-500 transition-colors">
+              <span class="mono text-pink-500">✉</span>
+              <input id="email" name="email" type="email" required placeholder="your.email@domain.com"
                      class="cmd-input text-sm bg-transparent" />
             </div>
           </div>
           <div class="mt-6">
-            <label for="message" class="mono text-xs text-slate-400">body:</label>
-            <div class="mt-2 flex items-start gap-2 border-b border-white/15 pb-2 focus-within:border-cyan-400 transition-colors">
-              <span class="mono text-cyan-400">$</span>
-              <textarea id="message" name="message" required rows="3" placeholder="transmit message to the server..."
+            <label for="message" class="mono text-xs text-slate-400">body (message):</label>
+            <div class="mt-2 flex items-start gap-2 border-b border-white/15 pb-2 focus-within:border-pink-500 transition-colors">
+              <span class="mono text-pink-500">$</span>
+              <textarea id="message" name="message" required rows="3" placeholder="ระบุโปรเจกต์ หรือข้อความที่ต้องการติดต่อ..."
                         class="cmd-input text-sm resize-none bg-transparent"></textarea>
             </div>
           </div>
@@ -470,18 +459,18 @@
   </main>
 
   <!-- ================= FOOTER ================= -->
-  <footer class="border-t border-white/5 py-8">
+  <footer class="border-t border-white/10 py-8">
     <div class="mx-auto max-w-6xl px-5 flex flex-col sm:flex-row items-center justify-between gap-4">
-      <p class="mono text-xs text-slate-500">© 2026 <span class="text-slate-300">&lt;DEV/&gt;_</span> — built with HTML · Tailwind · JS</p>
+      <p class="mono text-xs text-slate-400">© NATTHAKRIT ANANRITHIKUL — Built with Code & Food Calories</p>
       <div class="flex items-center gap-5">
-        <a href="#" class="nav-link text-xs" aria-label="GitHub">GitHub</a>
-        <a href="#" class="nav-link text-xs" aria-label="LinkedIn">LinkedIn</a>
-        <a href="#" class="nav-link text-xs" aria-label="Email">Email</a>
+        <a href="https://github.com" target="_blank" rel="noopener" class="nav-link text-xs">GitHub</a>
+        <a href="https://linkedin.com" target="_blank" rel="noopener" class="nav-link text-xs">LinkedIn</a>
+        <a href="mailto:contact@example.com" class="nav-link text-xs">Email</a>
       </div>
     </div>
   </footer>
 
-  <script defer>
+  <script>
     (function () {
       "use strict";
 
@@ -511,17 +500,15 @@
           link.addEventListener("click", function () { setMenu(false); });
         });
       }
-      document.addEventListener("keydown", function (e) {
-        if (e.key === "Escape" && menu && !menu.classList.contains("hidden")) setMenu(false);
-      });
 
       /* ---------------- terminal typing ---------------- */
       var body = document.getElementById("terminal-body");
       var LINES = [
-        "> system initialized...",
-        "> hello, i build digital & physical realities.",
-        "> stack: react · node · python · iot · edge ai",
-        "> status: all systems operational"
+        "> system status: 100% operational",
+        "> developer: Natthakrit Ananrithikul",
+        "> fuel_input: ramen + specialty_coffee",
+        "> output: clean architecture & scalable systems",
+        "> ready to build high-performance solutions..."
       ];
 
       function typeSequence() {
@@ -548,10 +535,10 @@
           }
           typeChars(span, LINES[i], function () {
             i++;
-            window.setTimeout(nextLine, 320);
+            window.setTimeout(nextLine, 300);
           });
         }
-        window.setTimeout(nextLine, 700);
+        window.setTimeout(nextLine, 600);
       }
 
       function typeChars(el, text, done) {
@@ -560,7 +547,7 @@
           if (j <= text.length) {
             el.textContent = text.slice(0, j);
             j++;
-            window.setTimeout(tick, 42);
+            window.setTimeout(tick, 35);
           } else {
             done();
           }
@@ -590,7 +577,7 @@
               io.unobserve(entry.target);
             }
           });
-        }, { threshold: 0.12 });
+        }, { threshold: 0.1 });
         reveals.forEach(function (el) { io.observe(el); });
       } else {
         reveals.forEach(function (el) { el.classList.add("in-view"); });
@@ -608,20 +595,16 @@
           var msgVal = message ? message.value.trim() : "";
 
           if (!emailVal || !msgVal) {
-            setStatus("> error: incomplete transmission", "#FF5F57");
-            return;
-          }
-          if (emailVal.indexOf("@") === -1) {
-            setStatus("> error: invalid address format", "#FF5F57");
+            setStatus("> error: กรุณากรอกข้อมูลให้ครบถ้วน", "#FF5F57");
             return;
           }
 
-          setStatus("> transmitting...", "#00F0FF");
+          setStatus("> transmitting message...", "#FF007F");
           window.setTimeout(function () {
-            setStatus("> message received ✓", "#39FF14");
+            setStatus("> message received ✓ (จะรีบตอบกลับโดยเร็วครับ)", "#39FF14");
             if (email) email.value = "";
             if (message) message.value = "";
-          }, 1200);
+          }, 1000);
         });
       }
 
